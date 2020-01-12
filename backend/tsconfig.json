@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "lib": ["ESNext"],
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+
+        "allowJs": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "allowSyntheticDefaultImports": true,
+
+        "baseUrl": "./",
+        "paths": {
+            "src": ["src/index"],
+            "src/*": ["src/*"],
+            "db": ["src/db/index"],
+            "db/*": ["src/db/*"],
+            "constants": ["src/constants/index"],
+            "constants/*": ["src/constants/*"],
+            "handlers": ["src/handlers/index"],
+            "handlers/*": ["src/handlers/*"]
+        }
+    },
+    "include": ["src/**/*", "types/**/*", "node_modules/@types"]
+}
