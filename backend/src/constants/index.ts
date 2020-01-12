@@ -4,4 +4,10 @@ export default {
         user: '/user',
         article: '/article',
     },
+    databases: {
+        tredactor: 'tredactor.ru',
+    },
+    tables: {
+        articles: 'articles',
+    },
 };

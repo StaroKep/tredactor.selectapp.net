@@ -1,6 +1,6 @@
 import mysql, { Connection } from 'mysql';
 
-import constants from 'constants/dev';
+import constants from 'src/constants/dev';
 
 const { db } = constants;
 
