@@ -11,11 +11,11 @@ const { databases, tables } = constants;
 
 export default (request: Request, response: Response) => {
     const data: Partial<Article> = request.body;
-    console.log(data);
 
     const tablePath = getTablePath([databases.tredactor, tables.articles]);
 
     const connection = DB.connect();
+    connection.connect();
 
     connection.query(`INSERT INTO ${tablePath} SET ?`, data, err => {
         if (err) {
@@ -25,5 +25,5 @@ export default (request: Request, response: Response) => {
         }
     });
 
-    DB.end();
+    connection.end();
 };

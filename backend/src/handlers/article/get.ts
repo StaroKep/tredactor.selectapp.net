@@ -17,6 +17,7 @@ export default (request: Request, response: Response) => {
     const tablePath = getTablePath([databases.tredactor, tables.articles]);
 
     const connection = DB.connect();
+    connection.connect();
 
     connection.query(
         `SELECT * FROM ${tablePath} WHERE ?`,
@@ -30,5 +31,5 @@ export default (request: Request, response: Response) => {
         }
     );
 
-    DB.end();
+    connection.end();
 };
