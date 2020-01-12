@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=yes, initial-scale=1"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>API.TREDACTOR.RU</title>
+    </head>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .page {
+            width: 100%;
+            position: absolute;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 300px;
+            height: 220px;
+        }
+
+        .logo {
+            margin: 0 0 20px 0;
+        }
+
+        .title {
+            font-size: 100px;
+            line-height: 100px;
+            margin: 0;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 25px;
+            line-height: 25px;
+            margin: 0;
+            text-align: center;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid grey;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            margin: 20px 0 0 0;
+            padding: 0 10px;
+            color: rgb(25, 100, 200);
+            text-decoration: none;
+        }
+        .links a:hover {
+            color: rgb(30, 144, 255);
+        }
+        .links a:active {
+            color: rgb(200, 20, 130);
+        }
+
+        @media (max-width: 300px) {
+            .links {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+    <body>
+        <div class="page">
+            <div class="container">
+                <div class="logo">
+                    <h1 class="title">API</h1>
+                    <h2 class="subtitle">TREDACTOR.RU</h2>
+                </div>
+                <div class="links">
+                    <a href="#" target="_blank">Application</a>
+                    <a href="#" target="_blank">Documentation</a>
+                    <a
+                        href="https://github.com/StaroKep/tredactor.ru"
+                        target="_blank"
+                    >
+                        Github
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

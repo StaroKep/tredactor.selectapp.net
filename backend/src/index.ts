@@ -1,20 +1,16 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import bodyParser from 'body-parser';
 
+import root from 'handlers/root';
 import user from 'handlers/user';
-
-import { DB } from 'db';
+import article from 'handlers/article';
 
 const app = express();
 app.use(bodyParser.json());
 
+root(app);
 user(app);
-
-app.get('/', function(request: Request, response: Response) {
-    DB.connect();
-    response.send('Hello, world!');
-    DB.end();
-});
+article(app);
 
 app.listen(3000, function() {
     console.log('Example app listening on port 3000!');

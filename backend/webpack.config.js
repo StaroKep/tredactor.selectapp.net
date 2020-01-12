@@ -4,11 +4,6 @@ module.exports = {
     entry: './src/index.ts',
     target: 'node',
     devtool: 'inline-source-map',
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        compress: true,
-        port: 60000,
-    },
     resolve: {
         extensions: ['.ts', '.js'],
         alias: {
@@ -36,6 +31,14 @@ module.exports = {
                         options: {
                             transpileOnly: true,
                         },
+                    },
+                ],
+            },
+            {
+                test: /\.(html)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
                     },
                 ],
             },

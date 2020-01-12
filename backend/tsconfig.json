@@ -20,8 +20,6 @@
             "src/*": ["src/*"],
             "db": ["src/db/index"],
             "db/*": ["src/db/*"],
-            "constants": ["src/constants/index"],
-            "constants/*": ["src/constants/*"],
             "handlers": ["src/handlers/index"],
             "handlers/*": ["src/handlers/*"]
         }

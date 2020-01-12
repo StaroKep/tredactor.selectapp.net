@@ -9,7 +9,7 @@ import patch from './patch';
 const { paths } = constants;
 
 export default (app: Express) => {
-    app.get(paths.user, get);
-    app.post(paths.user, post);
-    app.patch(paths.user, patch);
+    app.get(paths.article, get);
+    app.post(paths.article, post);
+    app.patch(paths.article, patch);
 };
