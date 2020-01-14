@@ -24,6 +24,8 @@
       "src/*": ["src/*"],
       "components": ["src/components"],
       "components/*": ["src/components/*"],
+      "pages": ["src/pages"],
+      "pages/*": ["src/pages/*"],
       "data": ["src/data"],
       "data/*": ["src/data/*"],
       "assets": ["src/assets/"],

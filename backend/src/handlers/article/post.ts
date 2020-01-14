@@ -12,12 +12,21 @@ const { databases, tables } = constants;
 export default (request: Request, response: Response) => {
     const data: Partial<Article> = request.body;
 
+    const { body } = data;
+    const stringifyedBody = JSON.stringify(body);
+
+    const modyfiedData = {
+        ...data,
+        body: stringifyedBody,
+    };
+    console.log(modyfiedData);
+
     const tablePath = getTablePath([databases.tredactor, tables.articles]);
 
     const connection = DB.connect();
     connection.connect();
 
-    connection.query(`INSERT INTO ${tablePath} SET ?`, data, err => {
+    connection.query(`INSERT INTO ${tablePath} SET ?`, modyfiedData, err => {
         if (err) {
             response.sendStatus(500);
         } else {
