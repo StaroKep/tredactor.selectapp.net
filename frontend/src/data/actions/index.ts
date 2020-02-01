@@ -1,3 +1,1 @@
-export function CommonAction() {
-    return { type: 'INITIAL_STATE' };
-}
+export { default as getActionType } from './getActionType';

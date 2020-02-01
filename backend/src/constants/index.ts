@@ -2,6 +2,7 @@ export default {
     paths: {
         root: '/',
         user: '/user',
+        userAuth: '/user/auth',
         article: '/article',
     },
     databases: {
@@ -9,5 +10,6 @@ export default {
     },
     tables: {
         articles: 'articles',
+        users: 'users',
     },
 };

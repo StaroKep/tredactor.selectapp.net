@@ -4,8 +4,8 @@
   "description": "front for tredactor project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --mode development --watch",
-    "build": "webpack --mode production",
+    "development:local:start": "webpack-dev-server --hot --watch --env.APP_ENV=development.local",
+    "production:build": "webpack --env.APP_ENV=production",
     "prettier:fix": "prettier --write ./src/**/*"
   },
   "repository": {

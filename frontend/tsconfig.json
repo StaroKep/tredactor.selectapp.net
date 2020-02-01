@@ -29,7 +29,9 @@
       "data": ["src/data"],
       "data/*": ["src/data/*"],
       "assets": ["src/assets/"],
-      "assets/*": ["src/assets/*"]
+      "assets/*": ["src/assets/*"],
+      "network": ["src/network/"],
+      "network/*": ["src/network/*"]
     }
   },
   "include": ["src/**/*", "types/**/*", "node_modules/@types"]
