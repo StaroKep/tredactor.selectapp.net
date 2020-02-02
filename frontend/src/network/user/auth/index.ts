@@ -1,9 +1,9 @@
 import axios from 'axios';
-import {FormProps} from "pages/Login/parts/Form/Form.types";
+import { FormProps } from 'pages/Login/parts/Form/Form.types';
 
 interface userAuthData {
     email: string;
-    callback: FormProps['setUserData']
+    callback: FormProps['setUserData'];
 }
 
 export const userAuth = (data: userAuthData) => {
@@ -17,9 +17,9 @@ export const userAuth = (data: userAuthData) => {
         },
     })
         .then(() => {
-            callback({email});
+            callback({ email });
         })
         .catch(() => {
-            callback({email: undefined});
+            callback({ email: undefined });
         });
 };

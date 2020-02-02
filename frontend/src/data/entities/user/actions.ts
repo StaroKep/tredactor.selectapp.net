@@ -1,4 +1,5 @@
 import { getActionType } from 'data/actions';
+import { createAction } from 'deox';
 
 export const SET_USER_DATA = getActionType('USER/SET_USER_DATA');
 
@@ -10,8 +11,8 @@ export interface SetUserDataAction {
     };
 }
 
-export const setUserData = (
-    payload: SetUserDataAction['payload']
-): SetUserDataAction => {
-    return { type: SET_USER_DATA, payload };
-};
+export const setUserData = createAction(
+    SET_USER_DATA,
+    resolve => (data: SetUserDataAction['payload']) =>
+        resolve<SetUserDataAction['payload']>(data)
+);
