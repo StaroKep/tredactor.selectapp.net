@@ -32,7 +32,7 @@ const Login: FunctionComponent<LoginProps> = (props: any) => {
         <div className={cx('root')}>
             <div className={cx('content')}>
                 <button onClick={exitButtonClick} className={cx('exit')}>
-                    <Exit className={} />
+                    <Exit />
                 </button>
 
                 {loginForm}
