@@ -10,7 +10,8 @@ import * as styles from './Menu.scss';
 
 const cx = cn.bind(styles);
 
-const Menu: FunctionComponent<MenuProps> = () => {
+const Menu: FunctionComponent<MenuProps> = props => {
+    const { userEmail } = props;
     const linkClassName = cx('link');
 
     const loginClassName = cx({
@@ -18,8 +19,8 @@ const Menu: FunctionComponent<MenuProps> = () => {
         login: true,
     });
     const loginComponent = (
-        <Link className={loginClassName} to="/login">
-            <span>Login</span>
+        <Link className={loginClassName} to={userEmail ? '/profile' : '/login'}>
+            <span>{userEmail || 'Login'}</span>
             <NoAvatar />
         </Link>
     );

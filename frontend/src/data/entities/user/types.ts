@@ -1,3 +1,3 @@
 export interface UserStoreData {
-    email?: string;
+    email: string;
 }

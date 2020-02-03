@@ -7,13 +7,14 @@ import { Exit } from 'src/icons';
 import { Form } from './parts/Form';
 import { SuccessMessage } from './parts/SuccessMessage';
 
-import * as styles from './Login.scss';
 import { LoginProps } from './Login.types';
+import * as styles from './Login.scss';
 
 const cx = cn.bind(styles);
 
 const Login: FunctionComponent<LoginProps> = (props: any) => {
     const { userEmail, setUserData } = props;
+    const isHistory = window.history.length > 1;
 
     const exitButtonClick = useCallback(() => {
         window.history.back();
@@ -31,9 +32,11 @@ const Login: FunctionComponent<LoginProps> = (props: any) => {
     return (
         <div className={cx('root')}>
             <div className={cx('content')}>
-                <button onClick={exitButtonClick} className={cx('exit')}>
-                    <Exit />
-                </button>
+                {isHistory && (
+                    <button onClick={exitButtonClick} className={cx('exit')}>
+                        <Exit />
+                    </button>
+                )}
 
                 {loginForm}
             </div>

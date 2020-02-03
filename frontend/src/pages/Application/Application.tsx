@@ -5,6 +5,7 @@ import cn from 'classnames/bind';
 import { Home } from 'pages/Home';
 import { Editor } from 'pages/Editor';
 import { Article } from 'pages/Article';
+import { Profile } from "pages/Profile";
 import { Login } from 'pages/Login/container';
 
 import * as styles from './Application.scss';
@@ -28,6 +29,9 @@ export const Application: FunctionComponent = () => {
                         <Link to="/">Home</Link>
                         <br />
                         <Article />
+                    </Route>
+                    <Route path="/profile">
+                        <Profile />
                     </Route>
                     <Route path="/">
                         <Home />

@@ -19,16 +19,19 @@
   },
   "homepage": "https://github.com/StaroKep/tredactor.ru#readme",
   "dependencies": {
+    "@types/ramda": "^0.26.40",
     "axios": "^0.19.1",
     "classnames": "^2.2.6",
     "deox": "^3.2.1",
     "query-string": "^6.9.0",
+    "ramda": "^0.27.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-media": "^1.10.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
+    "redux-observable": "^1.2.0",
     "rxjs": "^6.5.4"
   },
   "devDependencies": {

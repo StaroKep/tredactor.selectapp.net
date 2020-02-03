@@ -1,1 +1,3 @@
-export interface MenuProps {}
+export interface MenuProps {
+    userEmail?: string;
+}
