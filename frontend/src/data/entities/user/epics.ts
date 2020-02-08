@@ -2,7 +2,7 @@ import { path } from 'ramda';
 import { ActionsObservable, ofType } from 'redux-observable';
 import { ignoreElements, tap } from 'rxjs/operators';
 
-import { setUserEmail } from 'src/services/LocalStorage/setters';
+import { setUserEmail } from 'services/LocalStorage/setters';
 import { setUserData, SetUserDataAction } from './actions';
 
 const setUserDataEpic = (action$: ActionsObservable<SetUserDataAction>) =>

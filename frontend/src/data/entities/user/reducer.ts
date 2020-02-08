@@ -1,7 +1,7 @@
 import { createReducer } from 'deox';
 
 import { setUserData } from 'data/entities/user/actions';
-import { setUserEmail } from 'src/services/LocalStorage/setters';
+import { setUserEmail } from 'services/LocalStorage/setters';
 
 export const initialState = {};
 

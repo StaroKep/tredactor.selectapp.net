@@ -48,6 +48,7 @@ module.exports = env => {
                 data: path.resolve(__dirname, 'src/data'),
                 assets: path.resolve(__dirname, 'src/assets/'),
                 network: path.resolve(__dirname, 'src/network/'),
+                services: path.resolve(__dirname, 'src/services/'),
             },
         },
         output: {

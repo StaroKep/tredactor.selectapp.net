@@ -5,7 +5,7 @@ import cn from 'classnames/bind';
 import { Home } from 'pages/Home';
 import { Editor } from 'pages/Editor';
 import { Article } from 'pages/Article';
-import { Profile } from "pages/Profile";
+import { Profile } from 'pages/Profile/container';
 import { Login } from 'pages/Login/container';
 
 import * as styles from './Application.scss';
