@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 import cn from 'classnames/bind';
 
 import { Home } from 'pages/Home';
-import { Editor } from 'pages/Editor';
+import { Editor } from 'pages/Editor/container';
 import { Article } from 'pages/Article';
 import { Profile } from 'pages/Profile/container';
 import { Login } from 'pages/Login/container';
@@ -21,8 +21,6 @@ export const Application: FunctionComponent = () => {
                         <Login />
                     </Route>
                     <Route path="/editor">
-                        <Link to="/">Home</Link>
-                        <br />
                         <Editor />
                     </Route>
                     <Route path="/article">

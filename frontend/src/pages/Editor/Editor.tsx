@@ -1,71 +1,39 @@
-import React, {
-    FunctionComponent,
-    MouseEvent,
-    useState,
-    FormEvent,
-} from 'react';
+import React, { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
 import cn from 'classnames/bind';
 
-import axios from 'axios';
+import { Exit } from 'src/icons';
+
+import { Title } from './parts/Title';
+import { SubTitle } from './parts/SubTitle';
+import { PreText } from './parts/PreText';
+import { MainContent } from './parts/MainContent';
+import { Author } from './parts/Author/container';
+import { FreeLogo } from './parts/FreeLogo';
+
+import { EditorProps } from './Editor.types';
 
 import * as styles from './Editor.scss';
 
 const cx = cn.bind(styles);
 
-export const Editor: FunctionComponent = () => {
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
+const Editor: FunctionComponent<EditorProps> = props => {
+    const { userEmail } = props;
 
-    const buttonClick = (e: MouseEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const data = {
-            title,
-            body: [
-                {
-                    text: body,
-                },
-            ],
-        };
-
-        axios({
-            method: 'post',
-            url: 'http://localhost:3000/article',
-            data,
-        });
-    };
-
-    const handleInput = (e: FormEvent<HTMLInputElement>) => {
-        const target = e.currentTarget;
-        setTitle(target.value);
-    };
-
-    const handleTextAreaInput = (e: FormEvent<HTMLTextAreaElement>) => {
-        const target = e.currentTarget;
-        setBody(target.value);
-    };
+    const exitLink = userEmail ? '/profile' : '/';
 
     return (
         <div className={cx('root')}>
+            <Link className={cx('exit')} to={exitLink}>
+                <Exit />
+            </Link>
             <form className={cx('form')}>
-                <input
-                    onInput={handleInput}
-                    className={cx('input', 'form-element')}
-                    type="text"
-                />
-                <textarea
-                    onInput={handleTextAreaInput}
-                    className={cx('textarea', 'form-element')}
-                    defaultValue="Print text..."
-                />
-
-                <button
-                    className={cx('button', 'form-element')}
-                    onClick={buttonClick}
-                >
-                    Send
-                </button>
+                <Title />
+                <SubTitle />
+                <Author />
+                <PreText />
+                <MainContent />
+                <FreeLogo />
             </form>
         </div>
     );

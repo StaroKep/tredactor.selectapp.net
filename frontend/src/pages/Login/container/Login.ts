@@ -1,14 +1,16 @@
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
-import { Login } from 'pages/Login';
 import { Dispatch } from 'react';
+
 import { setUserData, SetUserDataAction } from 'data/entities/user/actions';
+import { Store } from 'data/store/types';
+import { getUserEmailFromStore } from 'data/entities/user/selector';
+
 import {
     LoginDispatchToProps,
     LoginStateToProps,
 } from 'pages/Login/container/Login.types';
-import { Store } from 'data/store/types';
-import { getUserEmailFromStore } from 'data/entities/user/selector';
+import { Login } from 'pages/Login';
 
 const mapStateToProps = (store: Store): LoginStateToProps => {
     const userEmail = getUserEmailFromStore(store);

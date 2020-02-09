@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Store } from 'data/store/types';
 import { getUserEmailFromStore } from 'data/entities/user/selector';
 
-import { Profile } from 'pages/Profile';
+import { Author } from 'pages/Editor/parts/Author';
 
-import { ProfileStateToProps } from './Profile.types';
+import { AuthorStateToProps } from './Author.types';
 
-const mapStateToProps = (store: Store): ProfileStateToProps => {
+const mapStateToProps = (store: Store): AuthorStateToProps => {
     const userEmail = getUserEmailFromStore(store) || '';
 
     return {
@@ -15,4 +15,4 @@ const mapStateToProps = (store: Store): ProfileStateToProps => {
     };
 };
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps)(Author);

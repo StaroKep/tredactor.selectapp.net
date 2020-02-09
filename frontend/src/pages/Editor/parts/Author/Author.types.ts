@@ -1,4 +1,4 @@
-export interface EditorProps {
+export interface AuthorProps {
     userEmail?: string;
     userAvatar?: string;
 }

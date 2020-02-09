@@ -22,6 +22,7 @@ const store = createStore(
     composeEnhancers(applyMiddleware(epicMiddleware))
 );
 
+// @ts-ignore
 epicMiddleware.run(epics);
 
 export default store;
