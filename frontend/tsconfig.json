@@ -1,40 +1,41 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "lib": [
-      "dom",
-      "ESNext"
-    ],
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "jsx": "react",
+    "compilerOptions": {
+        "strict": true,
+        "lib": ["dom", "ESNext"],
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "jsx": "react",
 
-    "allowJs": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "allowSyntheticDefaultImports": true,
+        "allowJs": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "allowSyntheticDefaultImports": true,
 
-    "baseUrl": "./",
-    "paths": {
-      "src": ["src/index"],
-      "src/*": ["src/*"],
-      "components": ["src/components"],
-      "components/*": ["src/components/*"],
-      "pages": ["src/pages"],
-      "pages/*": ["src/pages/*"],
-      "data": ["src/data"],
-      "data/*": ["src/data/*"],
-      "assets": ["src/assets/"],
-      "assets/*": ["src/assets/*"],
-      "network": ["src/network/"],
-      "network/*": ["src/network/*"],
-      "services": ["src/services"],
-      "services/*": ["src/services/*"]
-    }
-  },
-  "include": ["src/**/*", "types/**/*", "node_modules/@types"]
+        "baseUrl": "./",
+        "paths": {
+            "src": ["src/index"],
+            "src/*": ["src/*"],
+            "components": ["src/components"],
+            "components/*": ["src/components/*"],
+            "pages": ["src/pages"],
+            "pages/*": ["src/pages/*"],
+            "data": ["src/data"],
+            "data/*": ["src/data/*"],
+            "assets": ["src/assets/"],
+            "assets/*": ["src/assets/*"],
+            "network": ["src/network/"],
+            "network/*": ["src/network/*"],
+            "services": ["src/services"],
+            "services/*": ["src/services/*"],
+            "configs": ["src/configs"],
+            "configs/*": ["src/configs/*"],
+            "enums": ["src/configs/enums"],
+            "enums/*": ["src/configs/enums/*"]
+        }
+    },
+    "include": ["src/**/*", "types/**/*", "node_modules/@types"]
 }

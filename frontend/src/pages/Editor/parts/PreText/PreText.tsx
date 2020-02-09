@@ -1,32 +1,23 @@
-import React, { FormEvent, FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import cn from 'classnames/bind';
 
-import {
-    onPaste,
-    singleLineContentEditableOnKeyDown,
-} from 'pages/Editor/parts/helpers';
+import { TEXTAREA_TYPES } from 'enums';
+import { Textarea, TextareaProps } from 'components/Textarea';
 
 import * as styles from './PreText.scss';
 
 const cx = cn.bind(styles);
 
 const PreText: FunctionComponent = () => {
-    const [text, setText] = useState('');
-
-    const onChange = (e: FormEvent<HTMLDivElement>) => {
-        const target = e.currentTarget;
-        setText(target.innerText);
+    const textareaProps: TextareaProps = {
+        isSingleLine: true,
+        type: TEXTAREA_TYPES.ARTICLE_PRETEXT,
+        placeholder: 'Pretext',
     };
 
     return (
-        <div
-            contentEditable
-            className={cx('root')}
-            onKeyDown={singleLineContentEditableOnKeyDown}
-            onBlur={onChange}
-            onPaste={onPaste}
-        >
-            {text}
+        <div className={cx('root')}>
+            <Textarea {...textareaProps} />
         </div>
     );
 };

@@ -1,20 +1,3 @@
 .root {
-    background-color: transparent;
-    border: none;
-    border: 0;
-    width: 100%;
-    display: block;
-    outline: none;
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 2.5rem;
-    resize: none;
-    white-space: pre-wrap;
-    margin-bottom: 1rem;
-
-    &:empty:before {
-        content: 'Subtitle';
-        cursor: text;
-        color: var(--main-grey-text-color);
-    }
+    position: relative;
 }

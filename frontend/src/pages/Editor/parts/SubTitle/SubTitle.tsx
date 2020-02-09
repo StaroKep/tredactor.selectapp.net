@@ -1,32 +1,23 @@
-import React, { FormEvent, FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import cn from 'classnames/bind';
 
-import {
-    onPaste,
-    singleLineContentEditableOnKeyDown,
-} from 'pages/Editor/parts/helpers';
+import {TEXTAREA_TYPES} from "enums";
+import { Textarea, TextareaProps } from 'components/Textarea';
 
 import * as styles from './SubTitle.scss';
 
 const cx = cn.bind(styles);
 
 const SubTitle: FunctionComponent = () => {
-    const [text, setText] = useState('');
-
-    const onChange = (e: FormEvent<HTMLDivElement>) => {
-        const target = e.currentTarget;
-        setText(target.innerText);
+    const textareaProps: TextareaProps = {
+        isSingleLine: true,
+        type: TEXTAREA_TYPES.ARTICLE_SUBTITLE,
+        placeholder: 'Subtitle',
     };
 
     return (
-        <div
-            contentEditable
-            className={cx('root')}
-            onKeyDown={singleLineContentEditableOnKeyDown}
-            onBlur={onChange}
-            onPaste={onPaste}
-        >
-            {text}
+        <div className={cx('root')}>
+            <Textarea {...textareaProps} />
         </div>
     );
 };

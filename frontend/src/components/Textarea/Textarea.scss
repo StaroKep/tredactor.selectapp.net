@@ -1,0 +1,54 @@
+.root {
+    position: relative;
+}
+
+.view {
+    color: var(--main-text-color);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.textarea {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    outline: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: transparent;
+    caret-color: var(--main-grey-text-color);
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    resize: none;
+}
+
+.placeholder {
+    color: var(--main-grey-text-color);
+}
+
+/* Textarea text styles */
+
+.article-title {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: 500;
+}
+
+.article-subtitle {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.article-pretext {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.article-text {
+    font-size: 1rem;
+    line-height: 1.5;
+}
