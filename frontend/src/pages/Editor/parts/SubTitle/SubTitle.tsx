@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import cn from 'classnames/bind';
 
-import {TEXTAREA_TYPES} from "enums";
+import { TEXTAREA_TYPES } from 'enums';
 import { Textarea, TextareaProps } from 'components/Textarea';
 
 import * as styles from './SubTitle.scss';

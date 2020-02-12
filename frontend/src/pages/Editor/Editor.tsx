@@ -10,6 +10,7 @@ import { PreText } from './parts/PreText';
 import { MainContent } from './parts/MainContent';
 import { Author } from './parts/Author/container';
 import { FreeLogo } from './parts/FreeLogo';
+import { SaveButton } from './parts/SaveButton';
 
 import { EditorProps } from './Editor.types';
 
@@ -27,6 +28,11 @@ const Editor: FunctionComponent<EditorProps> = props => {
             <Link className={cx('exit')} to={exitLink}>
                 <Exit />
             </Link>
+            <SaveButton
+                save={() => {
+                    console.log('save');
+                }}
+            />
             <form className={cx('form')}>
                 <Title />
                 <SubTitle />

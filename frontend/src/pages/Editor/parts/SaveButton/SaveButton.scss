@@ -1,0 +1,17 @@
+.root {
+    background-color: transparent;
+    border: none;
+    display: block;
+    outline: none;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    box-shadow: var(--main-box-shadow);
+    position: absolute;
+    right: 0;
+    top: 8rem;
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+    margin: 2rem;
+}

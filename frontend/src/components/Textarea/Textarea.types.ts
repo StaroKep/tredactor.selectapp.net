@@ -1,4 +1,4 @@
-import {TEXTAREA_TYPES} from "enums";
+import { TEXTAREA_TYPES } from 'enums';
 
 export interface TextareaProps {
     isSingleLine?: boolean;
