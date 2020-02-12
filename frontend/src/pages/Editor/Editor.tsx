@@ -4,13 +4,13 @@ import cn from 'classnames/bind';
 
 import { Exit } from 'src/icons';
 
-import { Title } from './parts/Title';
-import { SubTitle } from './parts/SubTitle';
-import { PreText } from './parts/PreText';
-import { MainContent } from './parts/MainContent';
+import { Title } from './parts/Title/container';
+import { SubTitle } from './parts/SubTitle/container';
+import { PreText } from './parts/PreText/container';
+import { MainContent } from './parts/MainContent/container';
 import { Author } from './parts/Author/container';
 import { FreeLogo } from './parts/FreeLogo';
-import { SaveButton } from './parts/SaveButton';
+import { SaveButton } from './parts/SaveButton/container';
 
 import { EditorProps } from './Editor.types';
 
@@ -28,11 +28,7 @@ const Editor: FunctionComponent<EditorProps> = props => {
             <Link className={cx('exit')} to={exitLink}>
                 <Exit />
             </Link>
-            <SaveButton
-                save={() => {
-                    console.log('save');
-                }}
-            />
+            <SaveButton />
             <form className={cx('form')}>
                 <Title />
                 <SubTitle />

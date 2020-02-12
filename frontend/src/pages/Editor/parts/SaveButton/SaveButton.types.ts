@@ -1,3 +1,5 @@
+import { SetCurrentArticleAction } from 'data/entities/article/actions';
+
 export interface SaveButtonProps {
-    save: () => void;
+    save: (data: SetCurrentArticleAction['payload']) => void;
 }

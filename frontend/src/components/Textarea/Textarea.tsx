@@ -18,6 +18,7 @@ const Textarea: FunctionComponent<TextareaProps> = props => {
         isSingleLine = false,
         type = TEXTAREA_TYPES.ARTICLE_TEXT,
         placeholder = 'Input field',
+        onInputCallback = () => {},
     } = props;
 
     const [text, setText] = useState('');
@@ -30,7 +31,10 @@ const Textarea: FunctionComponent<TextareaProps> = props => {
     const textareaClassName = cx('textarea', textStyles);
 
     const onInput = (e: FormEvent<HTMLTextAreaElement>) => {
-        setText(e.currentTarget.value);
+        const { value } = e.currentTarget;
+
+        setText(value);
+        onInputCallback(value);
     };
 
     const onKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {

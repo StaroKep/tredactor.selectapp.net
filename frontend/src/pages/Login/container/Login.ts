@@ -4,7 +4,7 @@ import { Dispatch } from 'react';
 
 import { setUserData, SetUserDataAction } from 'data/entities/user/actions';
 import { Store } from 'data/store/types';
-import { getUserEmailFromStore } from 'data/entities/user/selector';
+import { getUserEmailFromStore } from 'data/entities/user/selectors';
 
 import {
     LoginDispatchToProps,

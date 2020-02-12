@@ -11,7 +11,14 @@ const SaveButton: FunctionComponent<SaveButtonProps> = props => {
     const { save } = props;
 
     return (
-        <button className={cx('root')} onClick={save}>
+        <button
+            className={cx('root')}
+            onClick={() => {
+                save({
+                    title: 'test',
+                });
+            }}
+        >
             S
         </button>
     );

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { Store } from 'data/store/types';
-import { getUserEmailFromStore } from 'data/entities/user/selector';
+import { getUserEmailFromStore } from 'data/entities/user/selectors';
 
 import { Profile } from 'pages/Profile';
 
