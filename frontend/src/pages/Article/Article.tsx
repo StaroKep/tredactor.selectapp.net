@@ -1,6 +1,6 @@
-import React, { FunctionComponent, useState, MouseEvent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
+import { useParams } from 'react-router';
 import cn from 'classnames/bind';
-import queryString from 'query-string';
 
 import axios from 'axios';
 
@@ -9,9 +9,9 @@ import * as styles from './Article.scss';
 const cx = cn.bind(styles);
 
 export const Article: FunctionComponent = () => {
+    const { id } = useParams();
+
     const [article, setArticle] = useState({});
-    const query = queryString.parse(location.search);
-    const { id } = query;
 
     const makeRequest = () => {
         axios({
@@ -26,23 +26,13 @@ export const Article: FunctionComponent = () => {
         makeRequest();
     }
 
-    const handleButtonClick = (e: MouseEvent) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        makeRequest();
-    };
-
-    const { title, body } = article;
+    const { title, subtitle, pre_text, body } = article;
 
     return (
         <div className={cx('root')}>
-            <div>
-                Article: {id}
-                <button onClick={handleButtonClick}>Show</button>
-            </div>
-
             <div>{title}</div>
+            <div>{subtitle}</div>
+            <div>{pre_text}</div>
             <div>{body}</div>
         </div>
     );

@@ -14,9 +14,7 @@ const SaveButton: FunctionComponent<SaveButtonProps> = props => {
         <button
             className={cx('root')}
             onClick={() => {
-                save({
-                    title: 'test',
-                });
+                save();
             }}
         >
             S

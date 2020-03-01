@@ -1,38 +1,47 @@
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
 
-import constants from 'src/constants';
+import constants from "src/constants";
 
-import { DB } from 'db';
-import { getTablePath } from 'db/helpers';
+import { DB } from "db";
+import { getTablePath } from "db/helpers";
 
-import { Article } from './types';
+import { Article } from "./types";
 
 const { databases, tables } = constants;
 
 export default (request: Request, response: Response) => {
-    const data: Partial<Article> = request.body;
+  const data: Partial<Article> = request.body;
 
-    const { body } = data;
-    const stringifyedBody = JSON.stringify(body);
+  const { body } = data;
+  const stringifyedBody = JSON.stringify(body);
 
-    const modyfiedData = {
-        ...data,
-        body: stringifyedBody,
-    };
-    console.log(modyfiedData);
+  const modyfiedData = {
+    ...data,
+    body: stringifyedBody
+  };
+  console.log(modyfiedData);
 
-    const tablePath = getTablePath([databases.tredactor, tables.articles]);
+  const tablePath = getTablePath([databases.tredactor, tables.articles]);
 
-    const connection = DB.connect();
-    connection.connect();
+  const connection = DB.connect();
+  connection.connect();
 
-    connection.query(`INSERT INTO ${tablePath} SET ?`, modyfiedData, err => {
-        if (err) {
-            response.sendStatus(500);
-        } else {
-            response.sendStatus(200);
-        }
-    });
+  connection.query(
+    `INSERT INTO ${tablePath} SET ?`,
+    modyfiedData,
+    (err, result) => {
+      if (err) {
+        response.sendStatus(500);
+        return;
+      }
 
-    connection.end();
+      const { insertId: id } = result;
+
+      response.send({
+        id
+      });
+    }
+  );
+
+  connection.end();
 };
