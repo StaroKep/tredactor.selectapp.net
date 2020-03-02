@@ -1,9 +1,10 @@
-import React, { FunctionComponent, useCallback } from 'react';
+import React, { FunctionComponent } from 'react';
 import cn from 'classnames/bind';
 import { Redirect } from 'react-router';
 
-import { Account } from 'pages/Profile/parts/Account/container';
-import { Menu } from 'pages/Profile/parts/Menu/container';
+import { Account } from './parts/Account/container';
+import { Menu } from './parts/Menu/container';
+import {ProjectsPanel} from "./parts/ProjectsPanel";
 
 import { ProfileProps } from './Profile.types';
 import * as styles from './Profile.scss';
@@ -20,7 +21,12 @@ const Profile: FunctionComponent<ProfileProps> = props => {
     return (
         <div className={cx('root')}>
             <Menu />
-            <Account />
+            <div className={cx('content')}>
+                <div className={cx('UserData')}>
+                    <Account/>
+                </div>
+                <ProjectsPanel />
+            </div>
         </div>
     );
 };

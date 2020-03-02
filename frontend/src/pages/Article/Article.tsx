@@ -30,10 +30,12 @@ export const Article: FunctionComponent = () => {
 
     return (
         <div className={cx('root')}>
-            <div>{title}</div>
-            <div>{subtitle}</div>
-            <div>{pre_text}</div>
-            <div>{body}</div>
+            <article className={cx('article')}>
+                <h1 className={cx('title')}>{title}</h1>
+                <h2 className={cx('subtitle')}>{subtitle}</h2>
+                <p className={cx('pre-text')}>{pre_text}</p>
+                <p className={cx('body')}>{body}</p>
+            </article>
         </div>
     );
 };

@@ -1,6 +1,24 @@
 .root {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+.content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    width: 100%;
+}
+
+.UserData {
+    border-radius: var(--main-border-radius);
+    box-shadow: var(--main-box-shadow);
+    box-sizing: border-box;
+    flex: 0 0;
+    margin: 3rem;
+    min-width: 24rem;
+    padding: 2rem;
 }

@@ -1,4 +1,26 @@
 :root {
+    --main-black-color: rgb(30, 30, 30);
+    --main-black-color-10: rgba(30, 30, 30, 0.1);
+    --main-black-color-20: rgba(30, 30, 30, 0.2);
+    --main-black-color-30: rgba(30, 30, 30, 0.3);
+    --main-black-color-40: rgba(30, 30, 30, 0.4);
+    --main-black-color-50: rgba(30, 30, 30, 0.5);
+    --main-black-color-60: rgba(30, 30, 30, 0.6);
+    --main-black-color-70: rgba(30, 30, 30, 0.7);
+    --main-black-color-80: rgba(30, 30, 30, 0.8);
+    --main-black-color-90: rgba(30, 30, 30, 0.9);
+
+    --main-white-color: rgb(255, 255, 255);
+    --main-white-color-10: rgba(255, 255, 255, 0.1);
+    --main-white-color-20: rgba(255, 255, 255, 0.2);
+    --main-white-color-30: rgba(255, 255, 255, 0.3);
+    --main-white-color-40: rgba(255, 255, 255, 0.4);
+    --main-white-color-50: rgba(255, 255, 255, 0.5);
+    --main-white-color-60: rgba(255, 255, 255, 0.6);
+    --main-white-color-70: rgba(255, 255, 255, 0.7);
+    --main-white-color-80: rgba(255, 255, 255, 0.8);
+    --main-white-color-90: rgba(255, 255, 255, 0.9);
+
     --main-hover-color: rgb(25, 100, 200);
     --main-hover-color-10: rgb(25, 100, 200, 0.1);
     --main-hover-color-20: rgb(25, 100, 200, 0.2);
@@ -11,8 +33,10 @@
     --main-hover-color-90: rgb(25, 100, 200, 0.9);
 
     --main-active-color: rgb(200, 25, 80);
-    --main-background-color: rgb(250, 250, 250);
+    --main-background-color: rgb(255, 255, 255);
     --main-grey-text-color: rgb(120, 120, 120);
-    --main-box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    --main-box-shadow: 0 0 0.5rem var(--main-black-color-20);
     --main-text-color: rgb(20, 20, 20);
+    --main-border-radius: 0.25rem;
+    --main-border-bottom: 0.125rem solid var(--main-black-color-60);
 }

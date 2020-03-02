@@ -9,21 +9,21 @@
 }
 
 .textarea {
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-    border: none;
-    outline: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    color: transparent;
-    caret-color: var(--main-grey-text-color);
-    top: 0;
-    left: 0;
     background-color: transparent;
+    border: none;
+    border-radius: 0;
+    caret-color: var(--main-grey-text-color);
+    color: transparent;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
     resize: none;
+    top: 0;
+    width: 100%;
 }
 
 .placeholder {
@@ -34,8 +34,8 @@
 
 .article-title {
     font-size: 2.5rem;
-    line-height: 3rem;
     font-weight: 500;
+    line-height: 3rem;
 }
 
 .article-subtitle {

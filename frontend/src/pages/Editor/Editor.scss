@@ -1,14 +1,14 @@
 .root {
-    width: 100%;
-    max-width: 64rem;
-    margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     border-radius: 1rem;
     box-shadow: var(--main-box-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem auto;
+    max-width: 64rem;
     padding: 4rem;
+    width: 100%;
 }
 
 .form {
@@ -19,17 +19,17 @@
 .exit {
     background-color: transparent;
     border: none;
-    display: block;
-    outline: none;
-    width: 4rem;
-    height: 4rem;
     border-radius: 2rem;
     box-shadow: var(--main-box-shadow);
+    cursor: pointer;
+    display: block;
+    height: 4rem;
+    margin: 2rem;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
     position: absolute;
     right: 0;
     top: 0;
-    cursor: pointer;
-    padding: 0;
-    overflow: hidden;
-    margin: 2rem;
+    width: 4rem;
 }

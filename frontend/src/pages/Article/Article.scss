@@ -1,0 +1,39 @@
+.root {
+  display: flex;
+  justify-content: center;
+}
+
+.article {
+  border-radius: 1rem;
+  box-shadow: var(--main-box-shadow);
+  box-sizing: border-box;
+  margin: 2rem;
+  max-width: 64rem;
+  padding: 4rem;
+  width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+}
+
+.pre-text {
+  margin: 0 0 1rem 0;
+}
+
+.pre-text, .body {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.body {
+  margin: 0;
+}
