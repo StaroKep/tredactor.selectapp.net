@@ -1,0 +1,23 @@
+.root {
+    font-family: var(--main-font-family);
+    font-size: var(--font-medium-size);
+    line-height: var(--font-medium-line-height);
+    color: var(--font-medium-color);
+    caret-color: var(--main-hover-color);
+    border-radius: var(--small-border-radius);
+    height: 2.5rem;
+    display: block;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    outline: none;
+    border: var(--main-border);
+    transition: var(--main-transition-params);
+    transition-property: border;
+    letter-spacing: 1px;
+    background: transparent;
+
+    &:focus {
+        border: var(--main-accent-border);
+    }
+}

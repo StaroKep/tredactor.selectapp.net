@@ -1,49 +1,26 @@
 import { Request, Response } from "express";
 
-import constants from "src/constants";
+import { getUserIdAndPassword } from "handlers/user/get.helpers";
 
-import { getTablePath } from "db/helpers";
+import { RequestBody } from "./types";
 
-import { User } from "handlers/user/types";
-import { DB } from "db";
-import {AuthCookie} from "handlers/user/auth/types";
+export default async (request: Request, response: Response) => {
+  const data: RequestBody = request.body;
+  const { uid, password } = data;
 
-const { databases, tables } = constants;
+  console.log(data, uid, password);
 
-// TODO: Fix types
-const getQuerySuccessfulResult = (result): User => {
-  return result[0];
-};
+  if (!password) {
+    response.sendStatus(500);
+    return;
+  }
 
-export default (request: Request, response: Response) => {
-  const data: Partial<User> = request.body;
+  const user = await getUserIdAndPassword({
+    id: uid,
+    password
+  });
 
-  const tablePath = getTablePath([databases.tredactor, tables.users]);
+  console.log(user);
 
-  const connection = DB.connect();
-  connection.connect();
-
-  connection.query(
-    `SELECT * FROM ${tablePath} WHERE ?`,
-    data,
-    (err, result) => {
-      if (err) {
-        console.log(err);
-        response.sendStatus(500);
-      } else {
-        const user = getQuerySuccessfulResult(result);
-
-        if (!user) {
-          response.sendStatus(400);
-          return;
-        }
-
-        const { id } = user;
-
-        response.cookie(AuthCookie, id).sendStatus(200);
-      }
-    }
-  );
-
-  connection.end();
+  response.send(user);
 };

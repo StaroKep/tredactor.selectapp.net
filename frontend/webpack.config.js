@@ -51,6 +51,7 @@ module.exports = env => {
                 services: path.resolve(__dirname, 'src/services/'),
                 configs: path.resolve(__dirname, 'src/configs/'),
                 enums: path.resolve(__dirname, 'src/configs/enums'),
+                icons: path.resolve(__dirname, 'src/icons'),
             },
         },
         output: {
@@ -102,6 +103,9 @@ module.exports = env => {
                     use: [
                         {
                             loader: 'file-loader',
+                            options: {
+                                esModule: false,
+                            },
                         },
                     ],
                 },

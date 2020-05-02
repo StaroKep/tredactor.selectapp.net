@@ -8,10 +8,12 @@ import { Home } from 'pages/Home';
 import { Editor } from 'pages/Editor/container';
 import { Article } from 'pages/Article';
 import { Profile } from 'pages/Profile/container';
-import { Login } from 'pages/Login/container';
 import { Sandbox } from 'pages/Sandbox';
+import { SignUp } from 'pages/SignUp/container';
+import { SignIn } from 'pages/SignIn';
 
 import * as styles from './Application.scss';
+import { Path } from 'enums/paths';
 
 const cx = cn.bind(styles);
 
@@ -20,23 +22,30 @@ export const Application: FunctionComponent = () => {
         <ConnectedRouter history={history}>
             <div className={cx('root')}>
                 <Switch>
-                    <Route path="/login">
-                        <Login />
+                    <Route path={Path.SIGN_UP}>
+                        <SignUp />
                     </Route>
-                    <Route path="/editor">
+                    <Route path={Path.SIGN_IN}>
+                        <SignIn />
+                    </Route>
+                    <Route path={Path.EDITOR}>
                         <Editor />
                     </Route>
-                    <Route path="/article/:id">
+                    <Route path={Path.ARTICLE}>
                         <Article />
                     </Route>
-                    <Route path="/profile">
+                    <Route path={Path.PROFILE}>
                         <Profile />
                     </Route>
-                    <Route path="/sandbox">
+                    <Route path={Path.PROFILE}>
                         <Redirect to="/profile" />
                         <Sandbox />
                     </Route>
-                    <Route path="/">
+                    <Route path={Path.SANDBOX}>
+                        <Redirect to="/profile" />
+                        <Sandbox />
+                    </Route>
+                    <Route path={Path.HOME}>
                         <Home />
                     </Route>
                 </Switch>

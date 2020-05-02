@@ -1,9 +1,4 @@
-import React, {
-    FunctionComponent,
-    useCallback,
-    MouseEvent,
-    useState,
-} from 'react';
+import React, { FunctionComponent, useCallback, MouseEvent, useState } from 'react';
 import cn from 'classnames/bind';
 
 import text from 'src/text';
@@ -28,7 +23,7 @@ const Form: FunctionComponent<FormProps> = props => {
                 callback: setUserData,
             });
         },
-        [email]
+        [email],
     );
 
     return (

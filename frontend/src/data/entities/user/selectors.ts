@@ -1,5 +1,10 @@
 import { Store } from 'data/store/types';
+import { UserStoreData } from 'data/entities/user/types';
 
-export const getUserEmailFromStore = (store: Store) => {
-    return store.user?.email;
-};
+export function getUser(store: Store): UserStoreData {
+    return store.user;
+}
+
+export function getUserEmailFromStore(store: Store): UserStoreData['email'] {
+    return getUser(store).email;
+}

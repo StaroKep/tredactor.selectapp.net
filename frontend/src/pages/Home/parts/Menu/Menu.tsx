@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import cn from 'classnames/bind';
 
 import { NoAvatar } from 'src/icons';
+import { Path } from 'src/configs/enums/paths';
 
 import { MenuProps } from './Menu.types';
 
@@ -19,7 +20,7 @@ const Menu: FunctionComponent<MenuProps> = props => {
         login: true,
     });
     const loginComponent = (
-        <Link className={loginClassName} to={userEmail ? '/profile' : '/login'}>
+        <Link className={loginClassName} to={userEmail ? Path.PROFILE : Path.SIGN_IN}>
             <span>{userEmail || 'Login'}</span>
             <NoAvatar />
         </Link>
@@ -27,13 +28,13 @@ const Menu: FunctionComponent<MenuProps> = props => {
 
     return (
         <div className={cx('root')}>
-            <Link className={linkClassName} to="/">
+            <Link className={linkClassName} to={Path.HOME}>
                 Tredactor
             </Link>
-            <Link className={linkClassName} to="/editor">
+            <Link className={linkClassName} to={Path.EDITOR}>
                 Editor
             </Link>
-            <Link className={linkClassName} to="/article">
+            <Link className={linkClassName} to={Path.ARTICLE}>
                 Article
             </Link>
             {loginComponent}

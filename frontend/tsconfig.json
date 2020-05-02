@@ -34,7 +34,9 @@
             "configs": ["src/configs"],
             "configs/*": ["src/configs/*"],
             "enums": ["src/configs/enums"],
-            "enums/*": ["src/configs/enums/*"]
+            "enums/*": ["src/configs/enums/*"],
+            "icons": ["src/icons"],
+            "icons/*": ["src/icons/*"]
         }
     },
     "include": ["src/**/*", "types/**/*", "node_modules/@types"]

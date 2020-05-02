@@ -1,11 +1,12 @@
 import { Store } from './types';
+
+import getInitialArticleStoreData from 'data/entities/article/initial';
 import getInitialUserStoreData from 'data/entities/user/initial';
 
-const initialData = (): Store => {
-    const user = getInitialUserStoreData();
-
+const initialData = (): Omit<Store, 'router'> => {
     return {
-        user,
+        user: getInitialUserStoreData(),
+        article: getInitialArticleStoreData(),
     };
 };
 

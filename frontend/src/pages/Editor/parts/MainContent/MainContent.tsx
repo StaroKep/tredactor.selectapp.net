@@ -3,7 +3,7 @@ import cn from 'classnames/bind';
 import { debounce } from 'lodash';
 
 import { Textarea, TextareaProps } from 'components/Textarea';
-import { TEXTAREA_TYPES } from 'enums/Textarea';
+import { TEXTAREA_TYPES } from 'enums/textarea';
 
 import { MainContentProps } from './MainContent.types';
 

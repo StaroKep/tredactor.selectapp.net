@@ -1,9 +1,4 @@
-import React, {
-    FunctionComponent,
-    useState,
-    FormEvent,
-    KeyboardEvent,
-} from 'react';
+import React, { FunctionComponent, useState, FormEvent, KeyboardEvent } from 'react';
 import cn from 'classnames/bind';
 
 import { TEXTAREA_TYPES, KEYS } from 'enums';
@@ -47,11 +42,7 @@ const Textarea: FunctionComponent<TextareaProps> = props => {
     return (
         <div className={cx('root')}>
             <div className={viewClassName}>{text || placeholder}</div>
-            <textarea
-                onInput={onInput}
-                onKeyDown={onKeyDown}
-                className={textareaClassName}
-            />
+            <textarea onInput={onInput} onKeyDown={onKeyDown} className={textareaClassName} />
         </div>
     );
 };

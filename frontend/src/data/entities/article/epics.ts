@@ -3,17 +3,14 @@ import { ActionsObservable, StateObservable } from 'redux-observable';
 import { map, mergeMap } from 'rxjs/operators';
 import { push } from 'connected-react-router';
 
-import {
-    saveCurrentArticle,
-    SaveCurrentArticleAction,
-} from 'data/entities/article/actions';
+import { saveCurrentArticle, SaveCurrentArticleAction } from 'data/entities/article/actions';
 import { Store } from 'data/store/types';
 import { getCurrentArticle } from 'data/entities/article/selectors';
 import { postArticle } from 'network/article/post';
 
 const saveCurrentArticleEpic = (
     action$: ActionsObservable<SaveCurrentArticleAction>,
-    store$: StateObservable<Store>
+    store$: StateObservable<Store>,
 ) =>
     action$.pipe(
         ofType(saveCurrentArticle),
@@ -36,9 +33,9 @@ const saveCurrentArticleEpic = (
                     const { id } = data;
 
                     return push(`/article/${id}`);
-                })
+                }),
             );
-        })
+        }),
     );
 
 export default [saveCurrentArticleEpic];

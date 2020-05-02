@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose, CombinedState } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
 
@@ -8,29 +8,30 @@ import { userReducer } from 'data/entities/user/reducer';
 import { articleReducer } from 'data/entities/article/reducer';
 
 import { history } from './history';
-import { Store } from './types';
+import { Store, ExtendedWindow, ExtendedStore } from './types';
 import initialData from './initial';
 
-const initialState: Store = initialData();
+const extendedWindow = window as ExtendedWindow;
 
-const epics = combineEpics(...userEpics, ...articleEpics);
 const epicMiddleware = createEpicMiddleware();
-const reducers = combineReducers({
+const epics = combineEpics(...userEpics, ...articleEpics);
+
+const reducers = combineReducers<CombinedState<ExtendedStore>>({
     user: userReducer,
     article: articleReducer,
     router: connectRouter(history),
 });
 
-// @ts-ignore
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const initialState: Store = initialData();
+
+const composeEnhancers = extendedWindow.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
     reducers,
     initialState,
-    composeEnhancers(applyMiddleware(epicMiddleware, routerMiddleware(history)))
+    composeEnhancers(applyMiddleware(epicMiddleware, routerMiddleware(history))),
 );
 
-// @ts-ignore
 epicMiddleware.run(epics);
 
 export default store;

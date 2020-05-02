@@ -7,12 +7,9 @@ import { Menu } from 'pages/Profile/parts/Menu';
 
 import { MenuDispatchToProps } from './Menu.types';
 
-const mapDispatchToProps = (
-    dispatch: Dispatch<AnyAction>
-): MenuDispatchToProps => {
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>): MenuDispatchToProps => {
     return {
-        setUserData: (data: SetUserDataAction['payload']) =>
-            dispatch(setUserData(data)),
+        setUserData: (data: SetUserDataAction['payload']) => dispatch(setUserData(data)),
     };
 };
 

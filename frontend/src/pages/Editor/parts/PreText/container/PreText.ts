@@ -1,10 +1,7 @@
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import {
-    setCurrentArticle,
-    SetCurrentArticleAction,
-} from 'data/entities/article/actions';
+import { setCurrentArticle, SetCurrentArticleAction } from 'data/entities/article/actions';
 
 import { PreText } from 'pages/Editor/parts/PreText';
 

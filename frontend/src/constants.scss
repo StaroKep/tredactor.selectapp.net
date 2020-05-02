@@ -1,4 +1,8 @@
 :root {
+    --main-font-family: 'Roboto', sans-serif;
+
+    --transparent: rgba(0, 0, 0, 0);
+
     --main-black-color: rgb(30, 30, 30);
     --main-black-color-10: rgba(30, 30, 30, 0.1);
     --main-black-color-20: rgba(30, 30, 30, 0.2);
@@ -20,23 +24,51 @@
     --main-white-color-70: rgba(255, 255, 255, 0.7);
     --main-white-color-80: rgba(255, 255, 255, 0.8);
     --main-white-color-90: rgba(255, 255, 255, 0.9);
+    --main-white-color-95: rgba(255, 255, 255, 0.95);
 
-    --main-hover-color: rgb(25, 100, 200);
-    --main-hover-color-10: rgb(25, 100, 200, 0.1);
-    --main-hover-color-20: rgb(25, 100, 200, 0.2);
-    --main-hover-color-30: rgb(25, 100, 200, 0.3);
-    --main-hover-color-40: rgb(25, 100, 200, 0.4);
-    --main-hover-color-50: rgb(25, 100, 200, 0.5);
-    --main-hover-color-60: rgb(25, 100, 200, 0.6);
-    --main-hover-color-70: rgb(25, 100, 200, 0.7);
-    --main-hover-color-80: rgb(25, 100, 200, 0.8);
-    --main-hover-color-90: rgb(25, 100, 200, 0.9);
+    --main-hover-color: rgba(25, 100, 200);
+    --main-hover-color-10: rgba(25, 100, 200, 0.1);
+    --main-hover-color-20: rgba(25, 100, 200, 0.2);
+    --main-hover-color-30: rgba(25, 100, 200, 0.3);
+    --main-hover-color-40: rgba(25, 100, 200, 0.4);
+    --main-hover-color-50: rgba(25, 100, 200, 0.5);
+    --main-hover-color-60: rgba(25, 100, 200, 0.6);
+    --main-hover-color-70: rgba(25, 100, 200, 0.7);
+    --main-hover-color-80: rgba(25, 100, 200, 0.8);
+    --main-hover-color-90: rgba(25, 100, 200, 0.9);
+    --main-hover-color-92: rgba(25, 100, 200, 0.92);
+
+    --main-border-radius: 0.5rem;
+    --small-border-radius: 0.25rem;
+
+    --main-box-shadow: 0 0 0.5rem var(--main-black-color-30);
+    --tiny-box-shadow: 0 0 0.25rem var(--main-black-color-10);
+
+    --main-accent-border: 1px solid var(--main-hover-color);
+    --transparent-border: 1px solid var(--transparent);
+    --main-border: 1px solid var(--main-black-color-30);
+
+    --main-transition-params: 0.25s;
 
     --main-active-color: rgb(200, 25, 80);
     --main-background-color: rgb(255, 255, 255);
     --main-grey-text-color: rgb(120, 120, 120);
-    --main-box-shadow: 0 0 0.5rem var(--main-black-color-20);
     --main-text-color: rgb(20, 20, 20);
-    --main-border-radius: 0.25rem;
     --main-border-bottom: 0.125rem solid var(--main-black-color-60);
+
+    --font-small-size: 0.75rem;
+    --font-small-line-height: 1rem;
+    --font-small-color: var(--main-black-color-70);
+
+    --font-medium-size: 1rem;
+    --font-medium-line-height: 1.5rem;
+    --font-medium-color: var(--main-black-color-80);
+
+    --font-big-size: 1.5;
+    --font-big-line-height: 3rem;
+    --font-big-color: var(--main-black-color);
+
+    --font-weight-light: 300;
+    --font-weight-medium: 400;
+    --font-weight-bold: 500;
 }

@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 
 import { Account } from './parts/Account/container';
 import { Menu } from './parts/Menu/container';
-import {ProjectsPanel} from "./parts/ProjectsPanel";
+import { ProjectsPanel } from './parts/ProjectsPanel';
 
 import { ProfileProps } from './Profile.types';
 import * as styles from './Profile.scss';
@@ -23,7 +23,7 @@ const Profile: FunctionComponent<ProfileProps> = props => {
             <Menu />
             <div className={cx('content')}>
                 <div className={cx('UserData')}>
-                    <Account/>
+                    <Account />
                 </div>
                 <ProjectsPanel />
             </div>

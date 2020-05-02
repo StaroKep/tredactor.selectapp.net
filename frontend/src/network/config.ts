@@ -1,8 +1,8 @@
 import { config } from 'configs';
-import { DOMAINS, ENDPOINTS } from 'enums';
+import { DOMAINS, ENDPOINT } from 'enums';
 
 const { environment } = config;
 
-export function getNetworkRequestPath(endpoint: ENDPOINTS) {
+export function getNetworkRequestPath(endpoint: ENDPOINT) {
     return DOMAINS[environment].concat(endpoint);
 }

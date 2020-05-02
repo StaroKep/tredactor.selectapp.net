@@ -1,9 +1,4 @@
-import React, {
-    FunctionComponent,
-    MouseEvent,
-    useState,
-    FormEvent,
-} from 'react';
+import React, { FunctionComponent, MouseEvent, useState, FormEvent } from 'react';
 import cn from 'classnames/bind';
 
 import axios from 'axios';
@@ -49,21 +44,14 @@ export const Editor: FunctionComponent = () => {
     return (
         <div className={cx('root')}>
             <form className={cx('form')}>
-                <input
-                    onInput={handleInput}
-                    className={cx('input', 'form-element')}
-                    type="text"
-                />
+                <input onInput={handleInput} className={cx('input', 'form-element')} type="text" />
                 <textarea
                     onInput={handleTextAreaInput}
                     className={cx('textarea', 'form-element')}
                     defaultValue="Print text..."
                 />
 
-                <button
-                    className={cx('button', 'form-element')}
-                    onClick={buttonClick}
-                >
+                <button className={cx('button', 'form-element')} onClick={buttonClick}>
                     Send
                 </button>
             </form>

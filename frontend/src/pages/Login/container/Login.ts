@@ -6,10 +6,7 @@ import { setUserData, SetUserDataAction } from 'data/entities/user/actions';
 import { Store } from 'data/store/types';
 import { getUserEmailFromStore } from 'data/entities/user/selectors';
 
-import {
-    LoginDispatchToProps,
-    LoginStateToProps,
-} from 'pages/Login/container/Login.types';
+import { LoginDispatchToProps, LoginStateToProps } from 'pages/Login/container/Login.types';
 import { Login } from 'pages/Login';
 
 const mapStateToProps = (store: Store): LoginStateToProps => {
@@ -18,12 +15,9 @@ const mapStateToProps = (store: Store): LoginStateToProps => {
     return { userEmail };
 };
 
-const mapDispatchToProps = (
-    dispatch: Dispatch<AnyAction>
-): LoginDispatchToProps => {
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>): LoginDispatchToProps => {
     return {
-        setUserData: (data: SetUserDataAction['payload']) =>
-            dispatch(setUserData(data)),
+        setUserData: (data: SetUserDataAction['payload']) => dispatch(setUserData(data)),
     };
 };
 

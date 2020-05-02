@@ -38,7 +38,8 @@
     transition-property: clip-path;
     width: fit-content;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         background-color: var(--main-hover-color);
         clip-path: circle(100%);
         .icon {

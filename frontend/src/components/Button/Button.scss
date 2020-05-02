@@ -1,0 +1,39 @@
+.root {
+    font-family: var(--main-font-family);
+    font-size: var(--font-medium-size);
+    line-height: var(--font-medium-line-height);
+    caret-color: var(--main-hover-color);
+    border-radius: var(--small-border-radius);
+    height: 2.5rem;
+    display: block;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    outline: none;
+    letter-spacing: 1px;
+    border: var(--main-accent-border);
+    background: var(--main-hover-color-90);
+    cursor: pointer;
+
+    &:active {
+        background: var(--main-hover-color-92);
+        transform: scale(0.98);
+    }
+}
+
+.button-theme-light {
+    background-color: var(--main-white-color);
+    border: var(--main-border);
+
+    &:active {
+        background: inherit;
+        transform: scale(0.98);
+    }
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}

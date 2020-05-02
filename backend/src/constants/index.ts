@@ -11,5 +11,6 @@ export default {
     tables: {
         articles: 'articles',
         users: 'users',
+        sessions: 'sessions',
     },
 };
