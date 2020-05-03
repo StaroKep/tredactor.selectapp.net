@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import cn from 'classnames/bind';
 
+import { SandboxProps } from './Sandbox.types';
+
 import * as styles from './Sandbox.scss';
 
 const cx = cn.bind(styles);
 
-const Sandbox: FunctionComponent = () => {
+const Sandbox: FunctionComponent<SandboxProps> = () => {
     return (
         <div className={cx('root')}>
             <button className={cx('inner')}>

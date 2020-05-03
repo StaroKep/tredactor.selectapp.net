@@ -1,33 +1,41 @@
-import React, { FunctionComponent, MouseEvent, useCallback } from 'react';
+import React, { FunctionComponent, MouseEvent, useCallback, useState } from 'react';
 import cn from 'classnames/bind';
+import { Link, Redirect } from 'react-router-dom';
 
-import { Text } from 'components/Text';
-
-import { TextTag } from 'enums/textTag';
-import { TextAlign } from 'enums/textAlign';
-import { Input } from 'components/Input';
-import Button from 'components/Button/Button';
-import { InputType } from 'enums/inputTypes';
+import { Exit } from 'icons';
+import { Text, Input, Button } from 'components';
+import { TextWeight, TextColor, Path, ButtonTheme, InputType, TextAlign, TextTag } from 'enums';
 
 import * as styles from './SignIn.scss';
-import { TextWeight } from 'enums/textWeight';
-import { TextType } from 'enums/textType';
-import { TextColor } from 'enums/textColor';
-import { Exit } from 'src/icons';
-import { Link } from 'react-router-dom';
-import { Path } from 'enums/paths';
-import { ButtonTheme } from 'enums/buttonTheme';
 
 import { SignInProps } from './SignIn.types';
 
 const cx = cn.bind(styles);
 
-export const SignIn: FunctionComponent<SignInProps> = () => {
-    const onSubmitButtonClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-        event.stopPropagation();
-        console.log('click');
-    }, []);
+export const SignIn: FunctionComponent<SignInProps> = props => {
+    const { userEmail, onSignInButtonClick } = props;
+
+    if (userEmail) {
+        return <Redirect to={Path.PROFILE} />;
+    }
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const onEmailInputChange = useCallback((value: string) => setEmail(value), [setEmail]);
+    const onPasswordInputChange = useCallback((value: string) => setPassword(value), [setPassword]);
+
+    const onSubmitButtonClick = useCallback(
+        (event: MouseEvent<HTMLButtonElement>) => {
+            event.preventDefault();
+            event.stopPropagation();
+            onSignInButtonClick({
+                email,
+                password,
+            });
+        },
+        [email, password, onSignInButtonClick],
+    );
 
     return (
         <div className={cx('root')}>
@@ -53,11 +61,13 @@ export const SignIn: FunctionComponent<SignInProps> = () => {
                         placeholder="Email"
                         type={InputType.EMAIL}
                         autoFocus
+                        onChange={onEmailInputChange}
                     />
                     <Input
                         className={cx('input')}
                         placeholder="Password"
                         type={InputType.PASSWORD}
+                        onChange={onPasswordInputChange}
                     />
                     <div className={cx('buttons')}>
                         <Button className={cx('button')} onClick={onSubmitButtonClick}>

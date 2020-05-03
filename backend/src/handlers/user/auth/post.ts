@@ -1,26 +1,26 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-import { getUserIdAndPassword } from "handlers/user/get.helpers";
+import { getUserIdAndPassword } from 'handlers/user/get.helpers';
 
-import { RequestBody } from "./types";
+import { RequestBody } from './types';
 
 export default async (request: Request, response: Response) => {
-  const data: RequestBody = request.body;
-  const { uid, password } = data;
+    const data: RequestBody = request.body;
+    const { uid, password } = data;
 
-  console.log(data, uid, password);
+    console.log(data, uid, password);
 
-  if (!password) {
-    response.sendStatus(500);
-    return;
-  }
+    if (!password) {
+        response.sendStatus(500);
+        return;
+    }
 
-  const user = await getUserIdAndPassword({
-    id: uid,
-    password
-  });
+    const user = await getUserIdAndPassword({
+        id: uid,
+        password,
+    });
 
-  console.log(user);
+    console.log(user);
 
-  response.send(user);
+    response.send(user);
 };

@@ -7,6 +7,7 @@ import root from 'handlers/root';
 import user from 'handlers/user';
 import userAuth from 'handlers/user/auth';
 import article from 'handlers/article';
+import articles from 'handlers/articles';
 
 const app = express();
 app.use(bodyParser.json());
@@ -17,6 +18,7 @@ root(app);
 user(app);
 userAuth(app);
 article(app);
+articles(app);
 
 app.listen(3000, function() {
     console.log('Example app listening on port 3000!');

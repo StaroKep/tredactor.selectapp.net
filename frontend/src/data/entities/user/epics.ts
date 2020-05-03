@@ -4,9 +4,17 @@ import { ignoreElements, tap, map, mergeMap, filter } from 'rxjs/operators';
 import { get } from 'lodash';
 
 import { createNewUser as createNewUserRequest } from 'network/user/post';
+import { getUserDataRequest } from 'network/user/get';
 
 import { setUserEmail } from 'services/LocalStorage/setters';
-import { setUserData, SetUserDataAction, createNewUser, CreateNewUserAction } from './actions';
+import {
+    setUserData,
+    SetUserDataAction,
+    createNewUser,
+    CreateNewUserAction,
+    fetchUserData,
+    FetchUserDataAction,
+} from './actions';
 
 const setUserDataEpic = (action$: ActionsObservable<SetUserDataAction>) =>
     action$.pipe(
@@ -37,4 +45,20 @@ const createNewUserEpic = (action$: ActionsObservable<CreateNewUserAction>) =>
         }),
     );
 
-export default [setUserDataEpic, createNewUserEpic];
+const fetchUserDataEpic = (action$: ActionsObservable<FetchUserDataAction>) =>
+    action$.pipe(
+        ofType(fetchUserData),
+        mergeMap(({ payload: fetchUserDataParams }) => {
+            return getUserDataRequest(fetchUserDataParams).pipe(
+                filter(({ status }) => {
+                    return status === 200;
+                }),
+                map(({ response }) => {
+                    const { email, id } = response;
+                    return setUserData({ id, email });
+                }),
+            );
+        }),
+    );
+
+export default [setUserDataEpic, createNewUserEpic, fetchUserDataEpic];

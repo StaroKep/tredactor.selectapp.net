@@ -1,6 +1,7 @@
 import { SetCurrentArticleAction } from './actions';
 
 export interface Article {
+    id?: number;
     title?: string;
     subtitle?: string;
     pretext?: string;
@@ -9,6 +10,7 @@ export interface Article {
 
 export interface ArticleStoreData {
     currentArticle?: Article;
+    userArticles?: Partial<Article>[];
 }
 
 export interface ComponentWithSetCurrentArticleProps {

@@ -1,10 +1,11 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import cn from 'classnames/bind';
 import { Redirect } from 'react-router';
 
+import { ArticlesList } from 'components';
+
 import { Account } from './parts/Account/container';
 import { Menu } from './parts/Menu/container';
-import { ProjectsPanel } from './parts/ProjectsPanel';
 
 import { ProfileProps } from './Profile.types';
 import * as styles from './Profile.scss';
@@ -12,7 +13,11 @@ import * as styles from './Profile.scss';
 const cx = cn.bind(styles);
 
 const Profile: FunctionComponent<ProfileProps> = props => {
-    const { userEmail } = props;
+    const { userEmail, userArticles, onFetchUserArticles } = props;
+
+    useEffect(() => {
+        onFetchUserArticles();
+    }, []);
 
     if (!userEmail) {
         return <Redirect to="/login" />;
@@ -25,7 +30,7 @@ const Profile: FunctionComponent<ProfileProps> = props => {
                 <div className={cx('UserData')}>
                     <Account />
                 </div>
-                <ProjectsPanel />
+                <ArticlesList articles={userArticles} />
             </div>
         </div>
     );

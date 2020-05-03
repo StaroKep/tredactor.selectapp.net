@@ -1,0 +1,15 @@
+.root {
+    border-radius: var(--main-border-radius);
+    box-shadow: var(--main-box-shadow);
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    margin: 3rem 3rem 3rem 0;
+    padding: 2rem;
+}
+
+.title {
+    font-size: 1.25rem;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    font-weight: 500;
+}

@@ -14,7 +14,7 @@
     },
     "homepage": "https://github.com/StaroKep/tredactor.ru#readme",
     "scripts": {
-        "prettier:fix": "prettier --config ./prettier.config.json --write ./src/**/* ./public/**/*",
+        "prettier:fix": "prettier --write ./src/**/*.{ts,js,json}",
         "build:dev": "webpack --mode development",
         "start:dev": "npm run build:dev && node ./dist/bundle.js",
         "build:prod": "webpack --mode production",

@@ -8,3 +8,7 @@ export function getUser(store: Store): UserStoreData {
 export function getUserEmailFromStore(store: Store): UserStoreData['email'] {
     return getUser(store).email;
 }
+
+export function getUserIdFromStore(store: Store): UserStoreData['id'] {
+    return getUser(store).id;
+}

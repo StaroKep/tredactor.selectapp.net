@@ -19,17 +19,13 @@ export default (request: Request, response: Response) => {
     const connection = DB.connect();
     connection.connect();
 
-    connection.query(
-        `SELECT * FROM ${tablePath} WHERE ?`,
-        data,
-        (err, result) => {
-            if (err) {
-                response.sendStatus(500);
-            } else {
-                response.send(result);
-            }
+    connection.query(`SELECT * FROM ${tablePath} WHERE ?`, data, (err, result) => {
+        if (err) {
+            response.sendStatus(500);
+        } else {
+            response.send(result);
         }
-    );
+    });
 
     connection.end();
 };

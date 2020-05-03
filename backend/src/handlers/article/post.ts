@@ -1,47 +1,41 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-import constants from "src/constants";
+import { articlesToUsersInsert } from 'src/db/tables/articlesToUsers';
 
-import { DB } from "db";
-import { getTablePath } from "db/helpers";
+import { Article } from './types';
+import { insertNewArticle } from './post.helpers';
 
-import { Article } from "./types";
-
-const { databases, tables } = constants;
+interface Body {
+    articleData: Partial<Article>;
+    userData: { userId: number };
+}
 
 export default (request: Request, response: Response) => {
-  const data: Partial<Article> = request.body;
+    const requestBody: Body = request.body;
+    const { articleData, userData } = requestBody;
+    const { userId } = userData || {};
 
-  const { body } = data;
-  const stringifyedBody = JSON.stringify(body);
+    const onErrorCallback = () => response.sendStatus(400);
 
-  const modyfiedData = {
-    ...data,
-    body: stringifyedBody
-  };
-  console.log(modyfiedData);
-
-  const tablePath = getTablePath([databases.tredactor, tables.articles]);
-
-  const connection = DB.connect();
-  connection.connect();
-
-  connection.query(
-    `INSERT INTO ${tablePath} SET ?`,
-    modyfiedData,
-    (err, result) => {
-      if (err) {
-        response.sendStatus(500);
+    if (!userId) {
+        response.sendStatus(401);
         return;
-      }
-
-      const { insertId: id } = result;
-
-      response.send({
-        id
-      });
     }
-  );
 
-  connection.end();
+    const onSuccessArticlesToUsersInsert = (articleId: number) => () => {
+        response.send({
+            id: articleId,
+        });
+    };
+
+    const onSuccessInsertNewArticleCallback = (articleId: number) => {
+        const params = {
+            userId,
+            articleId,
+        };
+
+        articlesToUsersInsert(params, onErrorCallback, onSuccessArticlesToUsersInsert(articleId));
+    };
+
+    insertNewArticle(articleData, onErrorCallback, onSuccessInsertNewArticleCallback);
 };

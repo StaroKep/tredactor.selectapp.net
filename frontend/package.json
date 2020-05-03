@@ -6,7 +6,7 @@
   "scripts": {
     "development:local:start": "webpack-dev-server --hot --watch --env.APP_ENV=development.local",
     "production:build": "webpack --env.APP_ENV=production",
-    "prettier:fix": "prettier --write ./src/**/*.{ts,js,tsx,css,scss,jsx,html}",
+    "prettier:fix": "prettier --write ./src/**/*.{ts,js,tsx,css,scss,jsx,html,json}",
     "stylelint:fix": "stylelint **/*.scss --fix --config .stylelintrc"
   },
   "repository": {

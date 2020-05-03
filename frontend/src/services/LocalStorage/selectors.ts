@@ -9,3 +9,13 @@ export const getUserEmail = (): string | undefined => {
 
     return email;
 };
+
+export const getUserId = (): number | undefined => {
+    const userId = localStorage.getItem(localStorageFields.userId);
+
+    if (!userId) {
+        return undefined;
+    }
+
+    return Number(userId);
+};

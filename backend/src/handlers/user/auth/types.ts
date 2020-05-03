@@ -1,6 +1,6 @@
-import {User} from "handlers/user/types";
+import { User } from 'handlers/user/types';
 
 export interface RequestBody {
-    uid: User['id'],
-    password: User['password'],
+    uid: User['id'];
+    password: User['password'];
 }

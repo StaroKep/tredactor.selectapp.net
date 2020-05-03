@@ -3,13 +3,13 @@ import { ajax, AjaxRequest } from 'rxjs/ajax';
 import { ENDPOINT, REQUEST_METHODS } from 'enums';
 import { getNetworkRequestPath } from 'network';
 
-import { Article } from 'data/entities/article/types';
+import { PostArticleParams } from './types';
 
-export function postArticle(article: Article) {
+export function postArticle(params: PostArticleParams) {
     const requestParams: AjaxRequest = {
         url: getNetworkRequestPath(ENDPOINT.ARTICLE),
         method: REQUEST_METHODS.POST,
-        body: article,
+        body: params,
         headers: {
             'Content-Type': 'application/json',
         },

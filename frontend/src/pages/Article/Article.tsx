@@ -4,11 +4,13 @@ import cn from 'classnames/bind';
 
 import axios from 'axios';
 
+import { ArticleProps } from './Article.types';
+
 import * as styles from './Article.scss';
 
 const cx = cn.bind(styles);
 
-export const Article: FunctionComponent = () => {
+export const Article: FunctionComponent<ArticleProps> = () => {
     const { id } = useParams();
 
     const [article, setArticle] = useState({});

@@ -2,10 +2,10 @@ import { Request, Response } from 'express';
 
 import constants from 'src/constants';
 
-import {getTablePath} from "db/helpers";
+import { DB } from 'db';
+import { getTablePath } from 'db/helpers';
 
-import {User} from "./types";
-import {DB} from "db";
+import { User } from './types';
 
 const { databases, tables } = constants;
 

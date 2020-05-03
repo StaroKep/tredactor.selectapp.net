@@ -7,3 +7,11 @@ export const setUserEmail = (email?: string) => {
         localStorage.setItem(localStorageFields.userEmail, email);
     }
 };
+
+export const setUserId = (userId?: number) => {
+    if (!userId) {
+        localStorage.removeItem(localStorageFields.userId);
+    } else {
+        localStorage.setItem(localStorageFields.userId, String(userId));
+    }
+};

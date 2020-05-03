@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import {AuthCookie} from "handlers/user/auth/types";
+import { AuthCookie } from 'handlers/user/auth/types';
 
 export const isAuthorized = (request: Request) => {
     const cookies = request.cookies;

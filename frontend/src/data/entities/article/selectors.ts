@@ -1,15 +1,18 @@
 import { Store } from 'data/store/types';
-import { Article, ArticleStoreData } from 'data/entities/article/types';
+import { ArticleStoreData } from 'data/entities/article/types';
 
 export const getArticleStoreField = (store: Store): ArticleStoreData => {
-    const fallback = {} as ArticleStoreData;
-
-    return store.article || fallback;
+    return store.article;
 };
 
-export const getCurrentArticle = (store: Store): Article => {
-    const fallback = {} as Article;
+export const getCurrentArticle = (store: Store): ArticleStoreData['currentArticle'] => {
     const articleStoreField = getArticleStoreField(store);
 
-    return articleStoreField.currentArticle || fallback;
+    return articleStoreField.currentArticle;
+};
+
+export const getUserArticlesFromStore = (store: Store): ArticleStoreData['userArticles'] => {
+    const articleStoreField = getArticleStoreField(store);
+
+    return articleStoreField.userArticles;
 };

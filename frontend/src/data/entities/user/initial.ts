@@ -1,8 +1,9 @@
 import { UserStoreData } from 'data/entities/user/types';
-import { getUserEmail } from 'services/LocalStorage/selectors';
+import { getUserId, getUserEmail } from 'services/LocalStorage/selectors';
 
 const getInitialUserStoreData = (): UserStoreData => {
     return {
+        id: getUserId(),
         email: getUserEmail(),
     };
 };
