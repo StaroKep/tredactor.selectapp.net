@@ -8,6 +8,10 @@ import {
     saveCurrentArticle,
     SaveCurrentArticleAction,
     setUserArticlesList,
+    fetchArticleById,
+    FetchUserArticlesListAction,
+    FetchArticleByIdAction,
+    setCurrentArticle,
 } from 'data/entities/article/actions';
 import { Store } from 'data/store/types';
 import { getCurrentArticle } from 'data/entities/article/selectors';
@@ -16,6 +20,7 @@ import { getUserIdFromStore } from 'data/entities/user/selectors';
 import { PostArticleParams } from 'network/article/post/types';
 import { Path } from 'enums/paths';
 import { getArticlesListRequest } from 'network/articles/get';
+import { getArticle } from 'network/article/get';
 
 const saveCurrentArticleEpic = (
     action$: ActionsObservable<SaveCurrentArticleAction>,
@@ -43,6 +48,8 @@ const saveCurrentArticleEpic = (
                 body: text,
             };
 
+            console.log(article);
+
             const postArticleParams: PostArticleParams = {
                 articleData: article,
                 userData: {
@@ -62,7 +69,7 @@ const saveCurrentArticleEpic = (
     );
 
 const fetchUserArticlesListEpic = (
-    action$: ActionsObservable<SaveCurrentArticleAction>,
+    action$: ActionsObservable<FetchUserArticlesListAction>,
     store$: StateObservable<Store>,
 ) =>
     action$.pipe(
@@ -90,4 +97,26 @@ const fetchUserArticlesListEpic = (
         }),
     );
 
-export default [saveCurrentArticleEpic, fetchUserArticlesListEpic];
+const fetchArticleByIdEpic = (
+    action$: ActionsObservable<FetchArticleByIdAction>,
+    store$: StateObservable<Store>,
+) =>
+    action$.pipe(
+        ofType(fetchArticleById),
+        mergeMap(({ payload: id }) => {
+            return getArticle({ id }).pipe(
+                map(({ response }) => {
+                    // TODO: Разобраться с получением и форматом статьи
+                    const article = response[0];
+                    const { body } = article;
+
+                    return setCurrentArticle({
+                        ...article,
+                        text: JSON.parse(body),
+                    });
+                }),
+            );
+        }),
+    );
+
+export default [fetchArticleByIdEpic, saveCurrentArticleEpic, fetchUserArticlesListEpic];

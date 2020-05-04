@@ -5,6 +5,6 @@ export interface InsertParams {
 
 export interface SelectArticlesParams {
     userId: number;
-    start?: number,
+    start?: number;
     length?: number;
 }

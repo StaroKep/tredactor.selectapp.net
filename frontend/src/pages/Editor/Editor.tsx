@@ -1,42 +1,66 @@
-import React, { FunctionComponent } from 'react';
-import { Link } from 'react-router-dom';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import cn from 'classnames/bind';
 
-import { Exit } from 'src/icons';
-
-import { Title } from './parts/Title/container';
-import { SubTitle } from './parts/SubTitle/container';
-import { PreText } from './parts/PreText/container';
-import { MainContent } from './parts/MainContent/container';
-import { Author } from './parts/Author/container';
-import { FreeLogo } from './parts/FreeLogo';
-import { SaveButton } from './parts/SaveButton/container';
+import { TextareaType } from 'enums';
+import { Textarea, TextareaProps } from 'components';
 
 import { EditorProps } from './Editor.types';
+import { CloseButton, RightMenu, SaveButton } from './parts';
 
 import * as styles from './Editor.scss';
 
 const cx = cn.bind(styles);
 
-const Editor: FunctionComponent<EditorProps> = props => {
-    const { userEmail } = props;
+export const Editor: FunctionComponent<EditorProps> = props => {
+    const {
+        userEmail,
+        onSetCurrentArticle,
+        currentArticle,
+        onSaveCurrentArticle,
+        onGoBack,
+    } = props;
+    const { title: currentArticleTitle = '', text: currentArticleText = '' } = currentArticle || {};
 
-    const exitLink = userEmail ? '/profile' : '/';
+    const rootClassNames = cx('root');
+    const articleWrapperClassNames = cx('article-wrapper');
+    const articleClassName = cx('article');
+
+    const [title, setTitle] = useState(currentArticleTitle);
+    const [text, setText] = useState(currentArticleText);
+
+    useEffect(() => {
+        onSetCurrentArticle({
+            text,
+            title,
+        });
+    }, [onSetCurrentArticle, title, text]);
+
+    const titleTextareaProps: TextareaProps = {
+        value: title,
+        placeholder: 'Title',
+        onInput: setTitle,
+        type: TextareaType.TITLE,
+    };
+
+    const textTextareaProps: TextareaProps = {
+        value: text, // TODO: Это место надо оптимизировать!
+        placeholder: 'Text',
+        onInput: setText,
+        type: TextareaType.TEXT,
+    };
 
     return (
-        <div className={cx('root')}>
-            <Link className={cx('exit')} to={exitLink}>
-                <Exit />
-            </Link>
-            <SaveButton />
-            <form className={cx('form')}>
-                <Title />
-                <SubTitle />
-                <Author />
-                <PreText />
-                <MainContent />
-                <FreeLogo />
-            </form>
+        <div className={rootClassNames}>
+            <RightMenu>
+                <CloseButton onClick={onGoBack} />
+                {userEmail && <SaveButton onClick={onSaveCurrentArticle} />}
+            </RightMenu>
+            <div className={articleWrapperClassNames}>
+                <div className={articleClassName}>
+                    <Textarea {...titleTextareaProps} />
+                    <Textarea {...textTextareaProps} />
+                </div>
+            </div>
         </div>
     );
 };

@@ -1,19 +1,19 @@
 .root {
+    background: var(--main-hover-color-90);
+    border: var(--main-accent-border);
+    border-radius: var(--small-border-radius);
+    box-sizing: border-box;
+    caret-color: var(--main-hover-color);
+    cursor: pointer;
+    display: block;
     font-family: var(--main-font-family);
     font-size: var(--font-medium-size);
-    line-height: var(--font-medium-line-height);
-    caret-color: var(--main-hover-color);
-    border-radius: var(--small-border-radius);
     height: 2.5rem;
-    display: block;
-    width: 100%;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    outline: none;
     letter-spacing: 1px;
-    border: var(--main-accent-border);
-    background: var(--main-hover-color-90);
-    cursor: pointer;
+    line-height: var(--font-medium-line-height);
+    outline: none;
+    padding: 0 1rem;
+    width: 100%;
 
     &:active {
         background: var(--main-hover-color-92);
@@ -21,7 +21,8 @@
     }
 }
 
-.button-theme-light {
+.button-theme-light,
+.button-theme-lazy {
     background-color: var(--main-white-color);
     border: var(--main-border);
 
@@ -31,9 +32,14 @@
     }
 }
 
+.button-theme-lazy {
+    border: none;
+    background-color: var(--transparent);
+}
+
 .link {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
     text-decoration: none;
 }

@@ -29,13 +29,13 @@ const Menu: FunctionComponent<MenuProps> = props => {
     return (
         <div className={cx('root')}>
             <Link className={linkClassName} to={Path.HOME}>
-                Tredactor
+                About
+            </Link>
+            <Link className={linkClassName} to={Path.ARTICLE}>
+                Articles
             </Link>
             <Link className={linkClassName} to={Path.EDITOR}>
                 Editor
-            </Link>
-            <Link className={linkClassName} to={Path.ARTICLE}>
-                Article
             </Link>
             {loginComponent}
         </div>

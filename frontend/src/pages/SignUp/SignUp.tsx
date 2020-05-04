@@ -2,7 +2,6 @@ import React, { FunctionComponent, MouseEvent, useCallback, useState } from 'rea
 import cn from 'classnames/bind';
 import { Link, Redirect } from 'react-router-dom';
 
-
 import { Exit } from 'icons';
 import { Input, Button, Text } from 'components';
 import {

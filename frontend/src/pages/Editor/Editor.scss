@@ -1,35 +1,24 @@
 .root {
     align-items: center;
-    border-radius: 1rem;
-    box-shadow: var(--main-box-shadow);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.article-wrapper {
+    max-width: 1280px;
+    width: 100%;
+}
+
+.article {
+    align-items: center;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 2rem auto;
-    max-width: 64rem;
-    padding: 4rem;
+    justify-content: flex-start;
+    max-width: 100%;
+    min-height: 100vh;
+    padding: 1rem 6rem;
     width: 100%;
-}
-
-.form {
-    display: block;
-    width: 100%;
-}
-
-.exit {
-    background-color: transparent;
-    border: none;
-    border-radius: 2rem;
-    box-shadow: var(--main-box-shadow);
-    cursor: pointer;
-    display: block;
-    height: 4rem;
-    margin: 2rem;
-    outline: none;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 4rem;
 }

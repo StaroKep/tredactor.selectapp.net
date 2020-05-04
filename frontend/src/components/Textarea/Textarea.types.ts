@@ -1,9 +1,8 @@
-import { TEXTAREA_TYPES } from 'enums';
+import { TextareaType } from 'enums';
 
 export interface TextareaProps {
-    isSingleLine?: boolean;
+    value?: string;
+    onInput: (value: string) => void;
     placeholder?: string;
-    type?: TEXTAREA_TYPES;
-
-    onInputCallback?: (value: string) => void;
+    type?: TextareaType;
 }

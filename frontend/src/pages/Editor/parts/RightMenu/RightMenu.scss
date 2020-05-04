@@ -1,0 +1,13 @@
+.root {
+    align-items: flex-start;
+    box-shadow: var(--main-box-shadow);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: flex-start;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 4rem;
+    z-index: 2;
+}

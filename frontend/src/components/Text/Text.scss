@@ -6,21 +6,21 @@
 .span,
 .p {
     &.small {
+        color: var(--font-small-color);
         font-size: var(--font-small-size);
         line-height: var(--font-small-line-height);
-        color: var(--font-small-color);
     }
 
     &.medium {
+        color: var(--font-medium-color);
         font-size: var(--font-medium-size);
         line-height: var(--font-medium-line-height);
-        color: var(--font-medium-color);
     }
 
     &.big {
+        color: var(--font-big-color);
         font-size: var(--font-big-size);
         line-height: var(--font-big-line-height);
-        color: var(--font-big-color);
     }
 }
 
@@ -38,8 +38,8 @@
 
 .center,
 .right {
-    width: 100%;
     display: block;
+    width: 100%;
 }
 
 .center {

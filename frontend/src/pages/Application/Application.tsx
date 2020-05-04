@@ -6,8 +6,8 @@ import { history } from 'data/store/history';
 
 import {
     Home,
-    Article,
     Sandbox,
+    ArticleContainer,
     EditorContainer,
     SignUpContainer,
     SignInContainer,
@@ -34,7 +34,7 @@ export const Application: FunctionComponent = () => {
                         <EditorContainer />
                     </Route>
                     <Route path={Path.ARTICLE.concat('/:id')}>
-                        <Article />
+                        <ArticleContainer />
                     </Route>
                     <Route path={Path.PROFILE}>
                         <ProfileContainer />

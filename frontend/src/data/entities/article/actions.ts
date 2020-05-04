@@ -6,6 +6,7 @@ import { Article } from './types';
 
 export const SET_CURRENT_ARTICLE = getActionType('ARTICLE/SET_CURRENT_ARTICLE');
 export const SAVE_CURRENT_ARTICLE = getActionType('ARTICLE/SAVE_CURRENT_ARTICLE');
+export const FETCH_ARTICLE_BY_ID = getActionType('ARTICLE/FETCH_ARTICLE_BY_ID');
 export const FETCH_USER_ARTICLES_LIST = getActionType('ARTICLE/FETCH_USER_ARTICLES_LIST');
 export const SET_USER_ARTICLES_LIST = getActionType('ARTICLE/SET_USER_ARTICLES_LIST');
 export const ADD_USER_ARTICLES_LIST = getActionType('ARTICLE/ADD_USER_ARTICLES_LIST');
@@ -66,4 +67,16 @@ export const addUserArticlesList = createAction(
     ADD_USER_ARTICLES_LIST,
     resolve => (data: AddUserArticlesListAction['payload']) =>
         resolve<AddUserArticlesListAction['payload']>(data),
+);
+
+/** fetchArticleById */
+export interface FetchArticleByIdAction {
+    type: typeof FETCH_ARTICLE_BY_ID;
+    payload: number;
+}
+
+export const fetchArticleById = createAction(
+    FETCH_ARTICLE_BY_ID,
+    resolve => (data: FetchArticleByIdAction['payload']) =>
+        resolve<FetchArticleByIdAction['payload']>(data),
 );

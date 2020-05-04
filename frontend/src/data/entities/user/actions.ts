@@ -45,5 +45,6 @@ export interface FetchUserDataAction {
 
 export const fetchUserData = createAction(
     FETCH_USER_DATA,
-    resolve => (data?: FetchUserDataAction['payload']) => resolve<FetchUserDataAction['payload']>(data),
+    resolve => (data?: FetchUserDataAction['payload']) =>
+        resolve<FetchUserDataAction['payload']>(data),
 );

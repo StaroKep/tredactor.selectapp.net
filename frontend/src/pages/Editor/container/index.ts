@@ -1,2 +1,2 @@
 export { default as Editor } from './Editor';
-export { EditorStateToProps } from './Editor.types';
+export { EditorStateToProps, EditorDispatchToProps } from './Editor.types';

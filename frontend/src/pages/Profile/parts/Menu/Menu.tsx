@@ -18,13 +18,13 @@ export const Menu: FunctionComponent<MenuProps> = props => {
     return (
         <div className={cx('root')}>
             <Link className={linkClassName} to="/">
-                Tredactor
+                About
+            </Link>
+            <Link className={linkClassName} to="/article">
+                Articles
             </Link>
             <Link className={linkClassName} to="/editor">
                 Editor
-            </Link>
-            <Link className={linkClassName} to="/article">
-                Article
             </Link>
             <button className={cx('logout')} onClick={logout}>
                 Log out

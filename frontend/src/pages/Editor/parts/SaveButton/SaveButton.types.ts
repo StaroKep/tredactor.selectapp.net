@@ -1,3 +1,3 @@
 export interface SaveButtonProps {
-    save: () => void;
+    onClick: () => void;
 }

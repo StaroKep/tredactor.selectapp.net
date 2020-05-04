@@ -1,0 +1,19 @@
+.root {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+
+    .text {
+        width: 100%;
+        color: var(--textarea-text-color);
+        font-size: var(--textarea-text-font-size);
+        font-weight: var(--font-weight-medium);
+        line-height: var(--textarea-text-line-height);
+        padding: 0.5rem 1rem;
+        text-align: left;
+    }
+}

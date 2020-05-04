@@ -1,43 +1,49 @@
-import React, { FunctionComponent, useState } from 'react';
 import { useParams } from 'react-router';
+import React, { FunctionComponent, useEffect } from 'react';
 import cn from 'classnames/bind';
 
-import axios from 'axios';
+import { Exit } from 'icons';
+import { Button } from 'components';
 
+import { RegularText, Title } from './parts';
 import { ArticleProps } from './Article.types';
 
 import * as styles from './Article.scss';
+import { ButtonTheme } from 'enums/buttonTheme';
 
 const cx = cn.bind(styles);
 
-export const Article: FunctionComponent<ArticleProps> = () => {
+export const Article: FunctionComponent<ArticleProps> = props => {
+    const { currentArticle, onGetArticleById, onGoBack } = props;
     const { id } = useParams();
+    const { title, text } = currentArticle || {};
 
-    const [article, setArticle] = useState({});
+    useEffect(() => {
+        onGetArticleById(id);
+    }, []);
 
-    const makeRequest = () => {
-        axios({
-            method: 'get',
-            url: `http://localhost:3000/article?id=${id}`,
-        }).then(({ data }) => {
-            setArticle(data[0] || { title: 'No such article' });
-        });
+    const rootClassNames = cx('root');
+    const articleWrapperClassNames = cx('article-wrapper');
+    const articleClassNames = cx('article');
+    const closeButtonClassNames = cx('close-button');
+
+    const closeButtonProps = {
+        onClick: onGoBack,
+        theme: ButtonTheme.LAZY,
+        className: closeButtonClassNames,
     };
 
-    if (!Object.keys(article).length) {
-        makeRequest();
-    }
-
-    const { title, subtitle, pre_text, body } = article;
-
     return (
-        <div className={cx('root')}>
-            <article className={cx('article')}>
-                <h1 className={cx('title')}>{title}</h1>
-                <h2 className={cx('subtitle')}>{subtitle}</h2>
-                <p className={cx('pre-text')}>{pre_text}</p>
-                <p className={cx('body')}>{body}</p>
-            </article>
+        <div className={rootClassNames}>
+            <Button {...closeButtonProps}>
+                <Exit />
+            </Button>
+            <div className={articleWrapperClassNames}>
+                <div className={articleClassNames}>
+                    <Title>{title}</Title>
+                    <RegularText>{text}</RegularText>
+                </div>
+            </div>
         </div>
     );
 };

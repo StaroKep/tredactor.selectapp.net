@@ -54,7 +54,6 @@
     --main-background-color: rgb(255, 255, 255);
     --main-grey-text-color: rgb(120, 120, 120);
     --main-text-color: rgb(20, 20, 20);
-    --main-border-bottom: 0.125rem solid var(--main-black-color-60);
 
     --font-small-size: 0.75rem;
     --font-small-line-height: 1rem;
@@ -64,9 +63,17 @@
     --font-medium-line-height: 1.5rem;
     --font-medium-color: var(--main-black-color-80);
 
-    --font-big-size: 1.5;
+    --font-big-size: 1.5rem;
     --font-big-line-height: 3rem;
     --font-big-color: var(--main-black-color);
+
+    --textarea-title-font-size: 2rem;
+    --textarea-title-line-height: 2.5rem;
+    --textarea-title-color: var(--main-black-color);
+
+    --textarea-text-font-size: 1.25rem;
+    --textarea-text-line-height: 2rem;
+    --textarea-text-color: var(--main-black-color-80);
 
     --font-weight-light: 300;
     --font-weight-medium: 400;

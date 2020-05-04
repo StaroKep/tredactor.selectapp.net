@@ -1,21 +1,21 @@
 .root {
+    background: transparent;
+    border: var(--main-border);
+    border-radius: var(--small-border-radius);
+    box-sizing: border-box;
+    caret-color: var(--main-hover-color);
+    color: var(--font-medium-color);
+    display: block;
     font-family: var(--main-font-family);
     font-size: var(--font-medium-size);
-    line-height: var(--font-medium-line-height);
-    color: var(--font-medium-color);
-    caret-color: var(--main-hover-color);
-    border-radius: var(--small-border-radius);
     height: 2.5rem;
-    display: block;
-    width: 100%;
-    padding: 0 1rem;
-    box-sizing: border-box;
+    letter-spacing: 1px;
+    line-height: var(--font-medium-line-height);
     outline: none;
-    border: var(--main-border);
+    padding: 0 1rem;
     transition: var(--main-transition-params);
     transition-property: border;
-    letter-spacing: 1px;
-    background: transparent;
+    width: 100%;
 
     &:focus {
         border: var(--main-accent-border);

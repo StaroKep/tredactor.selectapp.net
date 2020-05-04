@@ -1,48 +1,44 @@
-import React, { FunctionComponent, useState, FormEvent, KeyboardEvent } from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
+import React, { ChangeEvent, FunctionComponent, useCallback } from 'react';
 import cn from 'classnames/bind';
 
-import { TEXTAREA_TYPES, KEYS } from 'enums';
+import { TextareaType } from 'enums';
+
+import { Hr } from '../Hr';
 
 import { TextareaProps } from './Textarea.types';
 import * as styles from './Textarea.scss';
 
 const cx = cn.bind(styles);
 
-const Textarea: FunctionComponent<TextareaProps> = props => {
-    const {
-        isSingleLine = false,
-        type = TEXTAREA_TYPES.ARTICLE_TEXT,
-        placeholder = 'Input field',
-        onInputCallback = () => {},
-    } = props;
+export const Textarea: FunctionComponent<TextareaProps> = props => {
+    const { onInput, type = TextareaType.TEXT, placeholder, value } = props;
 
-    const [text, setText] = useState('');
+    const onChangeCallback = useCallback(
+        (event: ChangeEvent<HTMLTextAreaElement>) => {
+            const { value } = event.target;
 
-    const textStyles = cx(type);
+            onInput(value);
+        },
+        [onInput],
+    );
 
-    const viewClassName = cx('view', textStyles, {
-        placeholder: !text,
-    });
-    const textareaClassName = cx('textarea', textStyles);
+    const rootClassNames = cx('root');
+    const textareaClassNames = cx('textarea', type);
 
-    const onInput = (e: FormEvent<HTMLTextAreaElement>) => {
-        const { value } = e.currentTarget;
-
-        setText(value);
-        onInputCallback(value);
+    const rootProps = {
+        value,
+        placeholder,
+        onChange: onChangeCallback,
+        className: textareaClassNames,
     };
 
-    const onKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-        if (isSingleLine && e.nativeEvent.key === KEYS.ENTER) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    };
+    const hr = type === TextareaType.TITLE ? <Hr /> : null;
 
     return (
-        <div className={cx('root')}>
-            <div className={viewClassName}>{text || placeholder}</div>
-            <textarea onInput={onInput} onKeyDown={onKeyDown} className={textareaClassName} />
+        <div className={rootClassNames}>
+            <TextareaAutosize {...rootProps} />
+            {hr}
         </div>
     );
 };

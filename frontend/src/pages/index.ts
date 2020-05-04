@@ -12,8 +12,17 @@ export { Sandbox, SandboxProps } from './Sandbox';
 
 /** Pages as containers */
 
-export { Editor as EditorContainer, EditorStateToProps } from './Editor/container';
+export {
+    Editor as EditorContainer,
+    EditorStateToProps,
+    EditorDispatchToProps,
+} from './Editor/container';
 export { Profile as ProfileContainer, ProfileStateToProps } from './Profile/container';
+export {
+    Article as ArticleContainer,
+    ArticleStateToProps,
+    ArticleDispatchToProps,
+} from './Article/container';
 export {
     SignIn as SignInContainer,
     SignInStateToProps,
