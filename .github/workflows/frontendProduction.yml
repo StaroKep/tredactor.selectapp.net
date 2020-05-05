@@ -10,18 +10,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      root: ./frontend
+      dist: ./frontend/dist
+
     steps:
       - uses: actions/checkout@v2
+
+      # NodeJS installing
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
       - run: npm install
-        working-directory: ./frontend
+        working-directory: ${{env.root}}
+
+      # Building of the bundle
+      - run: npm run production:build
+        working-directory: ${{env.root}}
+
+      # For results checking
       - run: ls -la
-      - run: node -v
-      - run: npm -v
-#      - run: npm run production:build
-#      - run: npm test
-#        env:
-#          CI: true
+        working-directory: ${{env.root}}
+      - run: ls -la
+        working-directory: ${{env.dist}}
