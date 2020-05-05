@@ -1,20 +1,18 @@
+/** The script is responsible for rolling out the project on the servers */
 const fs = require('fs');
 const path = require('path');
 const AWS = require('aws-sdk');
 const mime = require('mime-types');
 
 const { decode } = require('./decodeSecrets');
-
-/** The script is responsible for rolling out the project on the servers */
 const argv = process.argv.slice(2);
 
-const activationData = argv.shift();
+/** Parsing string with secrets */
 const { accessKeyId, secretAccessKey, region, bucketName, folder, endpointUrl } = decode(
-    activationData,
+    argv.shift(),
 );
 
 const dist = path.resolve(__dirname, '../dist');
-
 const endpoint = new AWS.Endpoint(endpointUrl);
 
 const s3 = new AWS.S3({
@@ -26,6 +24,8 @@ const s3 = new AWS.S3({
 
 const uploadFile = (localPath, remotePath) => {
     const fileContent = fs.readFileSync(localPath);
+
+    /** Important set correct contentType */
     const contentType = mime.lookup(localPath);
 
     console.log(contentType);
@@ -37,13 +37,13 @@ const uploadFile = (localPath, remotePath) => {
         ContentType: contentType,
     };
 
-    // Uploading files to the bucket
     s3.upload(params, function(err, data) {
         if (err) throw err;
         console.log(`File uploaded successfully. ${data.Location}`);
     });
 };
 
+/** Upload all dist files */
 fs.readdir(dist, function(err, files) {
     if (err) throw err;
 
