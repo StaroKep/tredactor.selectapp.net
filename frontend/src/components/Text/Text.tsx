@@ -1,4 +1,4 @@
-import { toUpper } from 'lodash';
+import toUpper from 'lodash/toUpper';
 import React, { FunctionComponent } from 'react';
 import cn from 'classnames/bind';
 

@@ -1,7 +1,7 @@
 import { ofType } from 'deox';
 import { ActionsObservable } from 'redux-observable';
 import { ignoreElements, tap, map, mergeMap, filter } from 'rxjs/operators';
-import { get } from 'lodash';
+import get from 'lodash/get';
 
 import { createNewUser as createNewUserRequest } from 'network/user/post';
 import { getUserDataRequest } from 'network/user/get';

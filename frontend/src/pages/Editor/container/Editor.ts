@@ -1,4 +1,4 @@
-import { debounce } from 'lodash';
+import debounce from 'lodash/debounce';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { goBack } from 'connected-react-router';
