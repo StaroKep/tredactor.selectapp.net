@@ -26,12 +26,15 @@ const s3 = new AWS.S3({
 
 const uploadFile = (localPath, remotePath) => {
     const fileContent = fs.readFileSync(localPath);
+    const contentType = mime.lookup(localPath);
+
+    console.log(contentType);
 
     const params = {
         Bucket: bucketName,
         Key: remotePath,
         Body: fileContent,
-        ContentType: mime.contentType(localPath),
+        ContentType: contentType,
     };
 
     // Uploading files to the bucket
