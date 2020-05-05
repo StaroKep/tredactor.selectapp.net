@@ -13,7 +13,7 @@ jobs:
     env:
       root: ./frontend
       dist: ./frontend/dist
-      infrastructure: ./infrastructure
+      infrastructure: ./frontend/infrastructure
 
     steps:
       - uses: actions/checkout@v2
