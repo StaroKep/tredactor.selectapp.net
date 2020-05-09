@@ -3,7 +3,7 @@
 # How run MySQL local using docker
 ### [MySQL server for Docker](https://hub.docker.com/r/mysql/mysql-server/ "MySQL server for Docker")
 
-
+> For linux may be required sudo permissions
 
 ### [Example of running](https://www.youtube.com/watch?v=w_aVnMmrASE "Example of running")
 
