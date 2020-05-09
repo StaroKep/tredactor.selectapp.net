@@ -14,7 +14,7 @@ module.exports = {
         },
     },
     output: {
-        filename: 'bundle.js',
+        filename: 'backendProductionBundle.js',
         path: path.resolve(__dirname, 'dist'),
     },
     module: {
