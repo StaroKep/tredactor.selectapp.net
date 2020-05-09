@@ -1,0 +1,17 @@
+server {
+        listen 80;
+        listen [::]:80;
+
+        server_name tredactor.selectapp.net www.tredactor.selectapp.net;
+
+        index index.html;
+
+        location ~ (.*\.(js|jpg))$ {
+                proxy_pass https://storage.yandexcloud.net/text.selectapp.net/productio$
+        }
+
+        location / {
+                try_files $uri /index.html;
+                proxy_pass https://storage.yandexcloud.net/text.selectapp.net/productio$
+        }
+}

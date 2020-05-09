@@ -1,0 +1,12 @@
+server {
+        listen 80;
+        listen [::]:80;
+
+        server_name tredactor.api.selectapp.net;
+
+        index index.html;
+
+        location / {
+                proxy_pass http://localhost:3000;
+        }
+}
