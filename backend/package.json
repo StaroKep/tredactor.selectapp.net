@@ -16,9 +16,9 @@
     "scripts": {
         "prettier:fix": "prettier --write ./src/**/*.{ts,js,json}",
         "build:dev": "webpack --mode development",
-        "start:dev": "npm run build:dev && node ./dist/bundle.js",
+        "start:dev": "npm run build:dev && node ./dist/backendProductionBundle.js",
         "build:prod": "webpack --mode production",
-        "start:prod": "node ./dist/bundle.js"
+        "start:prod": "node ./dist/backendProductionBundle.js"
     },
     "dependencies": {
         "@types/cookie-parser": "^1.4.2",

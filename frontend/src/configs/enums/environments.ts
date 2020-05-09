@@ -1,3 +1,4 @@
 export enum ENVIRONMENTS {
-    DEVELOPMENT_LOCAL = 'development.local',
+    PRODUCTION = 'production',
+    DEVELOPMENT = 'development',
 }
