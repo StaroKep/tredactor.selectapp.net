@@ -8,6 +8,8 @@ module.exports.htmlTemplate = path.resolve(root, 'src/index.html');
 module.exports.resolve = {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
+        common: path.resolve(root, '../common/'),
+        backend: path.resolve(root, '../backend/src/'),
         src: path.resolve(root, 'src/'),
         components: path.resolve(root, 'src/components'),
         pages: path.resolve(root, 'src/pages'),

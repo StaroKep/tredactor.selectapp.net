@@ -23,10 +23,12 @@ export const Text: FunctionComponent<TextProps> = props => {
         weight = TextWeight.MEDIUM,
         isUppercase = false,
         color,
+        placeholderStyle = false,
     } = props;
 
     const classNames = cx('root', type, tag, className, align, weight, color, {
         uppercase: isUppercase,
+        'placeholder-style': placeholderStyle,
     });
 
     const content = isUppercase ? toUpper(children as string) : children;

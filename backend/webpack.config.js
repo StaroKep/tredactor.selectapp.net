@@ -7,6 +7,8 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js'],
         alias: {
+            common: path.resolve(__dirname, '../common/'),
+            frontend: path.resolve(__dirname, '../frontend/src/'),
             src: path.resolve(__dirname, 'src'),
             constants: path.resolve(__dirname, 'src/constants'),
             db: path.resolve(__dirname, 'src/db'),

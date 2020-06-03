@@ -7,8 +7,13 @@ import { Editor } from 'pages/Editor';
 
 import { Store } from 'data/store/types';
 import { getUserEmailFromStore } from 'data/entities/user/selectors';
-import { saveCurrentArticle, setCurrentArticle } from 'data/entities/article/actions';
+import {
+    saveCurrentArticle,
+    setCurrentArticle,
+    setCurrentArticleContent,
+} from 'data/entities/article/actions';
 import { getCurrentArticle } from 'data/entities/article/selectors';
+import { Article, ArticleContent } from 'data/entities/article/types';
 
 import { EditorStateToProps, EditorDispatchToProps } from './Editor.types';
 
@@ -23,10 +28,9 @@ const mapStateToProps = (store: Store): EditorStateToProps => {
 
 const mapDispatchToProps = (dispatch: Dispatch): EditorDispatchToProps => {
     return {
-        onSetCurrentArticle: debounce(
-            payload => dispatch(setCurrentArticle(payload)),
-            DEBOUNCE_TIMEOUT,
-        ),
+        onSetCurrentArticle: (payload: Article) => dispatch(setCurrentArticle(payload)),
+        onSetCurrentArticleContent: (payload: ArticleContent) =>
+            dispatch(setCurrentArticleContent(payload)),
         onSaveCurrentArticle: () => dispatch(saveCurrentArticle()),
         onGoBack: () => dispatch(goBack()),
     };

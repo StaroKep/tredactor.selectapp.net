@@ -3,9 +3,9 @@ import React, { FunctionComponent, useEffect } from 'react';
 import cn from 'classnames/bind';
 
 import { Exit } from 'icons';
-import { Button } from 'components';
+import { Button, ArticleTitle } from 'components';
 
-import { RegularText, Title } from './parts';
+import { RegularText } from './parts';
 import { ArticleProps } from './Article.types';
 
 import * as styles from './Article.scss';
@@ -16,7 +16,7 @@ const cx = cn.bind(styles);
 export const Article: FunctionComponent<ArticleProps> = props => {
     const { currentArticle, onGetArticleById, onGoBack } = props;
     const { id } = useParams();
-    const { title, text } = currentArticle || {};
+    const { title, content } = currentArticle || {};
 
     useEffect(() => {
         onGetArticleById(id);
@@ -40,8 +40,8 @@ export const Article: FunctionComponent<ArticleProps> = props => {
             </Button>
             <div className={articleWrapperClassNames}>
                 <div className={articleClassNames}>
-                    <Title>{title}</Title>
-                    <RegularText>{text}</RegularText>
+                    <ArticleTitle>{title}</ArticleTitle>
+                    <RegularText>{content}</RegularText>
                 </div>
             </div>
         </div>

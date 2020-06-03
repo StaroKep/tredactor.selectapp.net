@@ -1,6 +1,11 @@
 import { createReducer } from 'deox';
 
-import { setCurrentArticle, setUserArticlesList, addUserArticlesList } from './actions';
+import {
+    setCurrentArticle,
+    setUserArticlesList,
+    addUserArticlesList,
+    setCurrentArticleContent,
+} from './actions';
 import { ArticleStoreData } from './types';
 
 export const initialState: ArticleStoreData = {};
@@ -10,6 +15,11 @@ export const articleReducer = createReducer(initialState, handleAction => [
         const { currentArticle } = state;
 
         return { ...state, currentArticle: { ...currentArticle, ...payload } };
+    }),
+    handleAction(setCurrentArticleContent, (state, { payload: content }) => {
+        const { currentArticle } = state;
+
+        return { ...state, currentArticle: { ...currentArticle, content } };
     }),
     handleAction(setUserArticlesList, (state, { payload: userArticles }) => {
         return { ...state, userArticles };

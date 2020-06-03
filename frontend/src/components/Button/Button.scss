@@ -15,6 +15,10 @@
     padding: 0 1rem;
     width: 100%;
 
+    &:focus {
+        box-shadow: var(--active-box-shadow);
+    }
+
     &:active {
         background: var(--main-hover-color-92);
         transform: scale(0.98);
@@ -42,4 +46,27 @@
     display: flex;
     justify-content: center;
     text-decoration: none;
+}
+
+.button-theme-add-content-element {
+    display: block;
+    min-width: 100%;
+    font-weight: 500;
+    border: var(--transparent-border);
+    background-color: transparent;
+    transition: var(--main-transition-params);
+    transition-property: border;
+    &:focus {
+        border: var(--main-accent-border);
+    }
+    &:active {
+        background-color: transparent;
+    }
+}
+
+.button-theme-textarea-delete-button {
+    padding: 0 0.5rem;
+    width: 2rem;
+    position: absolute;
+    left: -3rem;
 }

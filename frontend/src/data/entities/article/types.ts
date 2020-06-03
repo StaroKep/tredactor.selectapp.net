@@ -1,3 +1,5 @@
+import { ArticleContent } from 'common/types/entities/article';
+
 import { SetCurrentArticleAction } from './actions';
 
 export interface Article {
@@ -5,7 +7,7 @@ export interface Article {
     title?: string;
     subtitle?: string;
     pretext?: string;
-    text?: string; // TODO: write correct type
+    content?: ArticleContent;
 }
 
 export interface ArticleStoreData {

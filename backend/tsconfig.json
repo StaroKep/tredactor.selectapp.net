@@ -16,6 +16,10 @@
 
         "baseUrl": "./",
         "paths": {
+            "common": ["../common"],
+            "common/*": ["../common/*"],
+            "frontend": ["../frontend/src"],
+            "frontend/*": ["../frontend/src/*"],
             "src": ["src/index"],
             "src/*": ["src/*"],
             "db": ["src/db/index"],

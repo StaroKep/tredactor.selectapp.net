@@ -5,4 +5,5 @@ export interface TextareaProps {
     onInput: (value: string) => void;
     placeholder?: string;
     type?: TextareaType;
+    autoFocus?: boolean;
 }

@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 100%;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.submit-button {
+  width: fit-content;
+}

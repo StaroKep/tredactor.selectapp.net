@@ -12,3 +12,4 @@ export { TextType } from './textType';
 export { TextWeight } from './textWeight';
 export { TextareaType } from './textareaType';
 export { KeyboardKey } from './keyboardKey';
+export { ArticleContentType } from './articleContent';

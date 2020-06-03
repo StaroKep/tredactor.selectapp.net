@@ -2,9 +2,10 @@ import { createAction } from 'deox';
 
 import { getActionType } from 'data/actions';
 
-import { Article } from './types';
+import { Article, ArticleContent } from './types';
 
 export const SET_CURRENT_ARTICLE = getActionType('ARTICLE/SET_CURRENT_ARTICLE');
+export const SET_CURRENT_ARTICLE_CONTENT = getActionType('ARTICLE/SET_CURRENT_ARTICLE_CONTENT');
 export const SAVE_CURRENT_ARTICLE = getActionType('ARTICLE/SAVE_CURRENT_ARTICLE');
 export const FETCH_ARTICLE_BY_ID = getActionType('ARTICLE/FETCH_ARTICLE_BY_ID');
 export const FETCH_USER_ARTICLES_LIST = getActionType('ARTICLE/FETCH_USER_ARTICLES_LIST');
@@ -21,6 +22,18 @@ export const setCurrentArticle = createAction(
     SET_CURRENT_ARTICLE,
     resolve => (data?: SetCurrentArticleAction['payload']) =>
         resolve<SetCurrentArticleAction['payload']>(data),
+);
+
+/** setCurrentArticleContent */
+export interface SetCurrentArticleContentAction {
+    type: typeof SET_CURRENT_ARTICLE_CONTENT;
+    payload: ArticleContent;
+}
+
+export const setCurrentArticleContent = createAction(
+    SET_CURRENT_ARTICLE_CONTENT,
+    resolve => (data?: SetCurrentArticleContentAction['payload']) =>
+        resolve<SetCurrentArticleContentAction['payload']>(data),
 );
 
 /** saveCurrentArticle */
