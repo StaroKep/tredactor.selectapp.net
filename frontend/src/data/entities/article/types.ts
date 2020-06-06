@@ -7,7 +7,7 @@ export interface Article {
     title?: string;
     subtitle?: string;
     pretext?: string;
-    content?: ArticleContent;
+    body?: ArticleContent;
 }
 
 export interface ArticleStoreData {

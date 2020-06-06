@@ -112,7 +112,7 @@ const fetchArticleByIdEpic = (
 
                     return setCurrentArticle({
                         ...article,
-                        text: JSON.parse(body),
+                        body: JSON.parse(body),
                     });
                 }),
             );
