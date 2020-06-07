@@ -109,11 +109,11 @@ export const AddElementButton: FunctionComponent<AddElementButtonProps> = props 
 
     return (
         <div className={rootClassName}>
-        <Button {...rootProps}>
-            <Text weight={TextWeight.BOLD} color={TextColor.WHITE}>
-                +
-            </Text>
-        </Button>
+            <Button {...rootProps}>
+                <Text weight={TextWeight.BOLD} color={TextColor.WHITE}>
+                    +
+                </Text>
+            </Button>
         </div>
     );
 };

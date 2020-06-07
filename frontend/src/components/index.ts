@@ -12,6 +12,7 @@ export { ArticleContentText, ArticleContentTextProps } from './ArticleContentTex
 export { ArticleContentImage, ArticleContentImageProps } from './ArticleContentImage';
 export { Title, TitleProps } from './Editor/Title';
 export { Title as ArticleTitle, TitleProps as ArticleTitleProps } from './Article/Title';
+export { Menu, MenuProps } from './Menu';
 
 /** Components as containers */
 export {
@@ -19,3 +20,4 @@ export {
     AddElementButtonStateToProps,
     AddElementButtonDispatchToProps,
 } from './Editor/AddElementButton/container';
+export { Menu as MenuContainer } from './Menu/container';

@@ -1,3 +1,3 @@
 export const phrases = {
-    titleOfTheArticle: 'Title of the article...'
+    titleOfTheArticle: 'Title of the article...',
 };

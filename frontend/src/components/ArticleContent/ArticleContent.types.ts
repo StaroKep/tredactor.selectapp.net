@@ -1,6 +1,6 @@
-import { ArticleContent } from "data/entities/article/types";
+import { ArticleContent } from 'data/entities/article/types';
 
 export interface ArticleContentProps {
-    content: ArticleContent,
+    content: ArticleContent;
     onSetCurrentArticleContent: (content: ArticleContent) => void;
 }

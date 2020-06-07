@@ -1,10 +1,7 @@
 import React, { FunctionComponent, useCallback } from 'react';
 import cn from 'classnames/bind';
 
-import {
-    ArticleContentText,
-    ArticleContentImage,
-} from 'data/entities/article/types';
+import { ArticleContentText, ArticleContentImage } from 'data/entities/article/types';
 import { ArticleContentType } from 'enums';
 import { Text, TextProps } from 'components/Editor/Text';
 import { Image, ImageProps } from 'components/Editor/Image';

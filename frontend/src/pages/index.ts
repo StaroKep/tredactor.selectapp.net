@@ -9,6 +9,7 @@ export { Profile, ProfileProps } from './Profile';
 export { SignIn, SignInProps } from './SignIn';
 export { SignUp, SignUpProps } from './SignUp';
 export { Sandbox, SandboxProps } from './Sandbox';
+export { Articles, ArticlesProps } from './Articles';
 
 /** Pages as containers */
 
@@ -33,3 +34,8 @@ export {
     SignUpStateToProps,
     SignUpDispatchToProps,
 } from './SignUp/container';
+export {
+    Articles as ArticlesContainer,
+    ArticlesStateToProps,
+    ArticlesDispatchToProps,
+} from './Articles/container';

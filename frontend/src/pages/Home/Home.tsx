@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react';
 
-import { Menu } from './parts/Menu/container';
+import { MenuContainer } from 'components';
 import { HomeProps } from './Home.types';
 
 const Home: FunctionComponent<HomeProps> = () => {
     return (
         <>
-            <Menu />
+            <MenuContainer />
         </>
     );
 };

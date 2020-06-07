@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames/bind';
 
@@ -11,14 +11,19 @@ import * as styles from './Menu.scss';
 
 const cx = cn.bind(styles);
 
-const Menu: FunctionComponent<MenuProps> = props => {
-    const { userEmail } = props;
+export const Menu: FunctionComponent<MenuProps> = props => {
+    const { isProfilePage = false, userId, userEmail, onSetUserData } = props;
     const linkClassName = cx('link');
 
     const loginClassName = cx({
         [linkClassName]: true,
         login: true,
     });
+
+    const onLogOutButtonClick = useCallback(() => {
+        onSetUserData({});
+    }, []);
+
     const loginComponent = (
         <Link className={loginClassName} to={userEmail ? Path.PROFILE : Path.SIGN_IN}>
             <span>{userEmail || 'Login'}</span>
@@ -26,18 +31,28 @@ const Menu: FunctionComponent<MenuProps> = props => {
         </Link>
     );
 
+    const articlesMenuElement = userId ? (
+        <Link className={linkClassName} to={Path.ARTICLES.concat(`/${userId}`)}>
+            Articles
+        </Link>
+    ) : null;
+
+    const logOutButton = (
+        <button className={cx('logout')} onClick={onLogOutButtonClick}>
+            Log out
+        </button>
+    );
+
     return (
         <div className={cx('root')}>
             <Link className={linkClassName} to={Path.HOME}>
                 About
             </Link>
-            <Link className={linkClassName} to={Path.ARTICLE}>
-                Articles
-            </Link>
+            {articlesMenuElement}
             <Link className={linkClassName} to={Path.EDITOR}>
                 Editor
             </Link>
-            {loginComponent}
+            {isProfilePage ? logOutButton : loginComponent}
         </div>
     );
 };

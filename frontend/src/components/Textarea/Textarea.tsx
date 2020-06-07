@@ -10,13 +10,7 @@ import * as styles from './Textarea.scss';
 const cx = cn.bind(styles);
 
 export const Textarea: FunctionComponent<TextareaProps> = props => {
-    const {
-        onInput,
-        type = TextareaType.TEXT,
-        placeholder,
-        value,
-        autoFocus = false,
-    } = props;
+    const { onInput, type = TextareaType.TEXT, placeholder, value, autoFocus = false } = props;
 
     const onChangeCallback = useCallback(
         (event: ChangeEvent<HTMLTextAreaElement>) => {

@@ -1,4 +1,4 @@
-import {ArticleContent} from "data/entities/article/types";
+import { ArticleContent } from 'data/entities/article/types';
 
 export interface ArticleContentImageProps {
     articleContentElementId: number;

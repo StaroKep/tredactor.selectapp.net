@@ -4,7 +4,7 @@ import compact from 'lodash/compact';
 
 import { Textarea } from 'components/Textarea';
 
-import { phrases} from './ArticleContent.config';
+import { phrases } from './ArticleContent.config';
 import { ArticleContentTextProps } from './ArticleContentText.types';
 
 import * as styles from './ArticleContentText.scss';

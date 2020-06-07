@@ -1,4 +1,4 @@
-import {Article, ArticleContent} from 'data/entities/article/types';
+import { Article, ArticleContent } from 'data/entities/article/types';
 
 export interface EditorProps {
     userEmail?: string;

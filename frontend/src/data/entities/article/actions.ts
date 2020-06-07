@@ -1,8 +1,10 @@
 import { createAction } from 'deox';
 
+import { ArticleContent } from 'common/types/entities/article';
+
 import { getActionType } from 'data/actions';
 
-import { Article, ArticleContent } from './types';
+import { Article } from './types';
 
 export const SET_CURRENT_ARTICLE = getActionType('ARTICLE/SET_CURRENT_ARTICLE');
 export const SET_CURRENT_ARTICLE_CONTENT = getActionType('ARTICLE/SET_CURRENT_ARTICLE_CONTENT');

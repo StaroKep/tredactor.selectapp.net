@@ -1,3 +1,3 @@
 export const phrases = {
-    someText: 'Some text...'
+    someText: 'Some text...',
 };
