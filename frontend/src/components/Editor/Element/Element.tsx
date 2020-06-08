@@ -38,6 +38,7 @@ export const Element: FunctionComponent<ElementProps> = props => {
     };
 
     const interfaceOfElementProps = {
+        elementIndex: contentElementIndex,
         onHideInterface,
         onSubmitChangesButtonClick,
     };

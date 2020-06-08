@@ -21,11 +21,9 @@ export const ArticlesList: FunctionComponent<ArticlesListProps> = props => {
                     articles.map(article => {
                         const { id, title } = article;
 
-                        if (!title) return null;
-
                         return (
                             <div key={id}>
-                                <Link to={Path.ARTICLE.concat(`/${id}`)}>{title}</Link>
+                                <Link to={Path.ARTICLE.concat(`/${id}`)}>{title || phrases.withoutArticle}</Link>
                             </div>
                         );
                     })}
