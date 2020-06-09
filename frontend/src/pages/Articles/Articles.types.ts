@@ -5,6 +5,7 @@ export interface ArticlesProps {
     userEmail: UserStoreData['email'];
     onGoBack: () => void;
     onFetchUserArticles: () => void;
+    onDeleteArticle: (id: number) => void;
 
     userArticles?: Partial<Article>[];
 }

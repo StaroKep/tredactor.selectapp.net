@@ -11,7 +11,7 @@ import * as styles from './Articles.scss';
 const cx = cn.bind(styles);
 
 export const Articles: FunctionComponent<ArticlesProps> = props => {
-    const { userEmail, onFetchUserArticles, userArticles, onGoBack } = props;
+    const { userEmail, onFetchUserArticles, userArticles, onGoBack, onDeleteArticle } = props;
 
     const onCloseButtonLink = useCallback(() => {
         onGoBack();
@@ -25,7 +25,7 @@ export const Articles: FunctionComponent<ArticlesProps> = props => {
         <div className={cx('root')}>
             <Button onClick={onCloseButtonLink}>Close</Button>
             <div className={cx('header')}>Articles list of user {userEmail}</div>
-            <ArticlesList articles={userArticles} />
+            <ArticlesList articles={userArticles} onDeleteArticle={onDeleteArticle} />
         </div>
     );
 };

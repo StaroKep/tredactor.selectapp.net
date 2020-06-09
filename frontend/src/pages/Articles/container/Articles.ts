@@ -8,7 +8,7 @@ import { Store } from 'data/store/types';
 
 import { ArticlesStateToProps, ArticlesDispatchToProps } from './Articles.types';
 import { getUserEmailFromStore } from 'data/entities/user/selectors';
-import { fetchUserArticlesList } from 'data/entities/article/actions';
+import { deleteArticleById, fetchUserArticlesList } from 'data/entities/article/actions';
 import { getUserArticlesFromStore } from 'data/entities/article/selectors';
 
 const mapStateToProps = (store: Store): ArticlesStateToProps => {
@@ -22,6 +22,7 @@ const mapDispatchToProps = (dispatch: Dispatch): ArticlesDispatchToProps => {
     return {
         onGoBack: () => dispatch(goBack()),
         onFetchUserArticles: () => dispatch(fetchUserArticlesList({})),
+        onDeleteArticle: (id: number) => dispatch(deleteArticleById(id)),
     };
 };
 

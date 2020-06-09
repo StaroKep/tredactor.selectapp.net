@@ -13,6 +13,10 @@ export const FETCH_ARTICLE_BY_ID = getActionType('ARTICLE/FETCH_ARTICLE_BY_ID');
 export const FETCH_USER_ARTICLES_LIST = getActionType('ARTICLE/FETCH_USER_ARTICLES_LIST');
 export const SET_USER_ARTICLES_LIST = getActionType('ARTICLE/SET_USER_ARTICLES_LIST');
 export const ADD_USER_ARTICLES_LIST = getActionType('ARTICLE/ADD_USER_ARTICLES_LIST');
+export const DELETE_ARTICLE_BY_ID = getActionType('ARTICLE/DELETE_ARTICLE_BY_ID');
+export const DELETE_ARTICLE_BY_ID_FROM_STORE = getActionType(
+    'ARTICLE/DELETE_ARTICLE_BY_ID_FROM_STORE',
+);
 
 /** setCurrentArticle */
 export interface SetCurrentArticleAction {
@@ -94,4 +98,28 @@ export const fetchArticleById = createAction(
     FETCH_ARTICLE_BY_ID,
     resolve => (data: FetchArticleByIdAction['payload']) =>
         resolve<FetchArticleByIdAction['payload']>(data),
+);
+
+/** deleteArticleById */
+export interface DeleteArticleByIdAction {
+    type: typeof DELETE_ARTICLE_BY_ID;
+    payload: number;
+}
+
+export const deleteArticleById = createAction(
+    DELETE_ARTICLE_BY_ID,
+    resolve => (data: DeleteArticleByIdAction['payload']) =>
+        resolve<DeleteArticleByIdAction['payload']>(data),
+);
+
+/** deleteArticleByIdFromStore */
+export interface DeleteArticleByIdFromStoreAction {
+    type: typeof DELETE_ARTICLE_BY_ID_FROM_STORE;
+    payload: number;
+}
+
+export const deleteArticleByIdFromStore = createAction(
+    DELETE_ARTICLE_BY_ID_FROM_STORE,
+    resolve => (data: DeleteArticleByIdFromStoreAction['payload']) =>
+        resolve<DeleteArticleByIdFromStoreAction['payload']>(data),
 );
