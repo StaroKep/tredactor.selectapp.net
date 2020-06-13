@@ -16,15 +16,15 @@ import {
 
 const mapStateToProps = (store: Store): DeleteElementButtonStateToProps => {
     const currentArticle = getCurrentArticle(store) || {};
-    const { content: currentArticleContent = [] } = currentArticle;
+    const { body: currentArticleContent = [] } = currentArticle;
 
     return { currentArticleContent };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DeleteElementButtonDispatchToProps => {
     return {
-        onSetCurrentArticleContent: (content: ArticleContent) =>
-            dispatch(setCurrentArticleContent(content)),
+        onSetCurrentArticleContent: (body: ArticleContent) =>
+            dispatch(setCurrentArticleContent(body)),
     };
 };
 

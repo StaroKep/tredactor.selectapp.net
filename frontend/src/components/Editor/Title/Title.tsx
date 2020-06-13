@@ -4,7 +4,7 @@ import cn from 'classnames/bind';
 import { TextareaType } from 'enums';
 import { Element, ElementProps } from 'components/Editor/Element';
 import { Textarea, TextareaProps } from 'components/Textarea';
-import { Title as ArticleTitle, TitleProps as ArticleTitleProps } from 'components/Article/Title';
+import { Title as ArticleTitle } from 'components/Article/Title';
 
 import { phrases } from './Title.config';
 import { TitleProps } from './Title.types';
@@ -23,6 +23,10 @@ export const Title: FunctionComponent<TitleProps> = props => {
         },
         [setTitle],
     );
+
+    useEffect(() => {
+        setTitle(value);
+    }, [value]);
 
     const onSubmitChangesButtonClick = useCallback(() => {
         onSetCurrentArticle({ title });

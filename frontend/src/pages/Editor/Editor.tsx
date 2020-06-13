@@ -7,6 +7,7 @@ import { EditorProps } from './Editor.types';
 import { CloseButton, RightMenu, SaveButton } from './parts';
 
 import * as styles from './Editor.scss';
+import { useParams } from 'react-router';
 
 const cx = cn.bind(styles);
 
@@ -18,8 +19,17 @@ export const Editor: FunctionComponent<EditorProps> = props => {
         onSaveCurrentArticle,
         onGoBack,
         onSetCurrentArticleContent,
+        onGetArticleById,
     } = props;
-    const { title = '', content = [] } = currentArticle || {};
+    const { id: articleId } = useParams();
+    console.log(articleId);
+    const { title = '', body = [] } = currentArticle || {};
+
+    useEffect(() => {
+        if (articleId) {
+            onGetArticleById(articleId);
+        }
+    }, []);
 
     const rootClassNames = cx('root');
     const articleWrapperClassNames = cx('article-wrapper');
@@ -31,7 +41,7 @@ export const Editor: FunctionComponent<EditorProps> = props => {
     };
 
     const articleContentProps: ArticleContentProps = {
-        content,
+        body,
         onSetCurrentArticleContent,
     };
 

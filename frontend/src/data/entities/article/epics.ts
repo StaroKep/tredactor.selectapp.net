@@ -25,7 +25,8 @@ import { Path } from 'enums/paths';
 import { getArticlesListRequest } from 'network/articles/get';
 import { getArticle } from 'network/article/get';
 import { deleteArticle } from 'network/article/delete';
-import deleteArticleFromUserArticles  from 'src/utils/deleteArticleFromUserArticles';
+import deleteArticleFromUserArticles from 'src/utils/deleteArticleFromUserArticles';
+import { patchArticle } from 'network/article/patch';
 
 const saveCurrentArticleEpic = (
     action$: ActionsObservable<SaveCurrentArticleAction>,
@@ -42,7 +43,7 @@ const saveCurrentArticleEpic = (
             const store = store$.value;
             const userId = getUserIdFromStore(store) || 0;
             const currentArticle = getCurrentArticle(store) || {};
-            const { text } = currentArticle;
+            const { body, id } = currentArticle;
 
             // TODO: Разобраться с этим
             const article = {
@@ -50,19 +51,30 @@ const saveCurrentArticleEpic = (
                 pre_text: currentArticle.pretext,
                 text: undefined,
                 pretext: undefined,
-                body: text,
+                body,
             };
 
-            console.log(article);
-
-            const postArticleParams: PostArticleParams = {
+            const saveArticleParams: PostArticleParams = {
                 articleData: article,
                 userData: {
                     userId,
                 },
             };
 
-            return postArticle(postArticleParams).pipe(
+            debugger;
+
+            if (id) {
+                return patchArticle(saveArticleParams).pipe(
+                    map(response => {
+                        const { response: data } = response;
+                        const { id } = data;
+
+                        return push(Path.ARTICLE.concat(`/${id}`));
+                    }),
+                );
+            }
+
+            return postArticle(saveArticleParams).pipe(
                 map(response => {
                     const { response: data } = response;
                     const { id } = data;

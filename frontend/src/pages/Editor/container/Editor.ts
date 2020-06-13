@@ -8,6 +8,7 @@ import { Editor } from 'pages/Editor';
 import { Store } from 'data/store/types';
 import { getUserEmailFromStore } from 'data/entities/user/selectors';
 import {
+    fetchArticleById,
     saveCurrentArticle,
     setCurrentArticle,
     setCurrentArticleContent,
@@ -33,6 +34,7 @@ const mapDispatchToProps = (dispatch: Dispatch): EditorDispatchToProps => {
             dispatch(setCurrentArticleContent(payload)),
         onSaveCurrentArticle: () => dispatch(saveCurrentArticle()),
         onGoBack: () => dispatch(goBack()),
+        onGetArticleById: (id: number) => dispatch(fetchArticleById(id)),
     };
 };
 

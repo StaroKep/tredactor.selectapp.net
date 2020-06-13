@@ -31,7 +31,7 @@ export const Application: FunctionComponent = () => {
                     <Route path={Path.SIGN_IN}>
                         <SignInContainer />
                     </Route>
-                    <Route path={Path.EDITOR}>
+                    <Route path={Path.EDITOR.concat('/:id?')}>
                         <EditorContainer />
                     </Route>
                     <Route path={Path.ARTICLE.concat('/:id')}>

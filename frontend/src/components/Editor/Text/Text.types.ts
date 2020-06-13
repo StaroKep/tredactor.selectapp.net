@@ -4,5 +4,5 @@ export interface TextProps {
     index: number;
     elementData: ArticleContentText;
     articleContent: ArticleContent;
-    onSetCurrentArticleContent: (content: ArticleContent) => void;
+    onSetCurrentArticleContent: (body: ArticleContent) => void;
 }

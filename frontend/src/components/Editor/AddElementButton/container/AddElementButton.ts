@@ -16,15 +16,15 @@ import {
 
 const mapStateToProps = (store: Store): AddElementButtonStateToProps => {
     const currentArticle = getCurrentArticle(store) || {};
-    const { content: currentArticleContent = [] } = currentArticle;
+    const { body: currentArticleContent = [] } = currentArticle;
 
     return { currentArticleContent };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): AddElementButtonDispatchToProps => {
     return {
-        onSetCurrentArticleContent: (content: ArticleContent) =>
-            dispatch(setCurrentArticleContent(content)),
+        onSetCurrentArticleContent: (body: ArticleContent) =>
+            dispatch(setCurrentArticleContent(body)),
     };
 };
 

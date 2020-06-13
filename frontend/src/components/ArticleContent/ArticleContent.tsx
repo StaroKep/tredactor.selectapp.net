@@ -14,20 +14,20 @@ import * as styles from './ArticleContent.scss';
 const cx = cn.bind(styles);
 
 export const ArticleContent: FunctionComponent<ArticleContentProps> = props => {
-    const { content, onSetCurrentArticleContent } = props;
+    const { body, onSetCurrentArticleContent } = props;
 
     const rootClassName = cx('root');
 
     return (
         <div className={rootClassName}>
-            {content.map((element, index) => {
+            {body.map((element, index) => {
                 const { type } = element;
 
                 switch (type) {
                     case ArticleContentType.TEXT:
                         const textProps: TextProps = {
                             index,
-                            articleContent: content,
+                            articleContent: body,
                             onSetCurrentArticleContent,
                             elementData: element as ArticleContentText,
                         };
@@ -36,7 +36,7 @@ export const ArticleContent: FunctionComponent<ArticleContentProps> = props => {
                     case ArticleContentType.IMAGE:
                         const imageProps: ImageProps = {
                             index,
-                            articleContent: content,
+                            articleContent: body,
                             onSetCurrentArticleContent,
                             elementData: element as ArticleContentImage,
                         };

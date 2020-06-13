@@ -3,4 +3,5 @@ export enum REQUEST_METHODS {
     POST = 'post',
     PATCH = 'patch',
     DELETE = 'delete',
+    PUT = 'put',
 }

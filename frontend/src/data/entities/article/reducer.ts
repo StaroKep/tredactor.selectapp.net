@@ -16,10 +16,10 @@ export const articleReducer = createReducer(initialState, handleAction => [
 
         return { ...state, currentArticle: { ...currentArticle, ...payload } };
     }),
-    handleAction(setCurrentArticleContent, (state, { payload: content }) => {
+    handleAction(setCurrentArticleContent, (state, { payload: body }) => {
         const { currentArticle } = state;
 
-        return { ...state, currentArticle: { ...currentArticle, content } };
+        return { ...state, currentArticle: { ...currentArticle, body } };
     }),
     handleAction(setUserArticlesList, (state, { payload: userArticles }) => {
         return { ...state, userArticles };

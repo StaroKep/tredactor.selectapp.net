@@ -38,6 +38,11 @@ export const ArticlesList: FunctionComponent<ArticlesListProps> = props => {
                                         {phrases.remove}
                                     </Text>
                                 </Button>
+                                <Button isLink to={`${Path.EDITOR}/${id}`}>
+                                    <Text weight={TextWeight.BOLD} color={TextColor.WHITE}>
+                                        {phrases.edit}
+                                    </Text>
+                                </Button>
                             </div>
                         );
                     })}

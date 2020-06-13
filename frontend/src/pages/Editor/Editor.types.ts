@@ -4,7 +4,8 @@ export interface EditorProps {
     userEmail?: string;
     currentArticle?: Article;
     onGoBack: () => void;
-    onSetCurrentArticleContent: (content: ArticleContent) => void;
+    onSetCurrentArticleContent: (body: ArticleContent) => void;
     onSetCurrentArticle: (params: Article) => void;
     onSaveCurrentArticle: () => void;
+    onGetArticleById: (id: number) => void;
 }

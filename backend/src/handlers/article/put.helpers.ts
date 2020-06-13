@@ -7,14 +7,14 @@ import { Article } from './types';
 
 const { databases, tables } = constants;
 
-export function insertNewArticle(
+export function patchArticleById(
     data: Partial<Article>,
     onErrorCallback: Function,
-    noSuccessCallback: (id: number) => void,
+    onSuccessCallback: (id: number) => void,
 ) {
     const { body, ...rest } = data;
+    const { id } = rest;
     const stringifyedBody = JSON.stringify(body);
-    console.log(stringifyedBody);
 
     const modyfiedData = {
         ...rest,
@@ -26,15 +26,19 @@ export function insertNewArticle(
     const connection = DB.connect();
     connection.connect();
 
-    connection.query(`INSERT INTO ${tablePath} SET ?`, modyfiedData, (err, result) => {
-        if (err) {
-            console.log(err);
-            onErrorCallback();
-            return;
-        }
+    connection.query(
+        `UPDATE ${tablePath} SET ? WHERE (?? = ?)`,
+        [modyfiedData, 'id', id],
+        (err, result) => {
+            if (err || !id) {
+                console.log(err);
+                onErrorCallback();
+                return;
+            }
 
-        noSuccessCallback(result.insertId);
-    });
+            onSuccessCallback(id);
+        },
+    );
 
     connection.end();
 }
