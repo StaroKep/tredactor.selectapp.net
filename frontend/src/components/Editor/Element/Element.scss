@@ -1,0 +1,57 @@
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    transition: var(--main-transition-params);
+    transition-property: border;
+    border: var(--transparent-border);
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: var(--main-border-radius);
+    box-shadow: var(--tiny-box-shadow);
+    margin-bottom: 0.5rem;
+
+    &_button {
+        width: 100%;
+        padding: 0;
+        background-color: transparent;
+        border: var(--transparent-border);
+        cursor: pointer;
+        outline: none;
+        box-shadow: none;
+        flex-direction: row;
+
+        &:hover {
+            border: var(--main-accent-border);
+        }
+    }
+
+    &_content {
+        box-shadow: none;
+    }
+}
+
+.children {
+    width: 100%;
+}
+
+.before-add-element-button {
+    top: -1.25rem;
+    right: -1.25rem;
+}
+
+.after-add-element-button {
+    bottom: -1.25rem;
+    right: -1.25rem;
+}
+
+.element {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: var(--main-border-radius);
+    box-shadow: var(--tiny-box-shadow);
+}

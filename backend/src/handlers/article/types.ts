@@ -1,3 +1,5 @@
+import { ArticleContent as ArticleBody } from 'common/types/entities/article';
+
 export interface Article {
     id: number;
     title: string;
@@ -10,7 +12,7 @@ export interface Article {
     blocking_date: Date;
     published: boolean;
     blocked: boolean;
-    blocking_reason: ArticleBlockingReason;
+    blocking_reason: ArticleBody;
     positive: number;
     negative: number;
     interesting: number;
@@ -21,22 +23,3 @@ export interface Article {
     dislike: number;
     path: string;
 }
-
-export enum ArticleBodyElements {
-    TEXT = 'TEXT',
-    LINK = 'LINK',
-}
-
-export type ArticleBody = (ArticleText | ArticleLink)[];
-export type ArticleBlockingReason = (ArticleText | ArticleLink)[];
-
-export type ArticleText = {
-    type: ArticleBodyElements.TEXT;
-    text: string;
-};
-
-export type ArticleLink = {
-    type: ArticleBodyElements.LINK;
-    text: string;
-    url: string;
-};

@@ -1,0 +1,23 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+.submit-button {
+    flex: 0 0;
+    margin-left: 1rem;
+}
+
+.edit-button {
+    width: fit-content;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.image {
+    width: 100%;
+}

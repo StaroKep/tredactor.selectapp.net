@@ -1,13 +1,13 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import cn from 'classnames/bind';
 
-import { TextareaType } from 'enums';
-import { Textarea, TextareaProps } from 'components';
+import { Title, TitleProps, ArticleContent, ArticleContentProps } from 'components';
 
 import { EditorProps } from './Editor.types';
 import { CloseButton, RightMenu, SaveButton } from './parts';
 
 import * as styles from './Editor.scss';
+import { useParams } from 'react-router';
 
 const cx = cn.bind(styles);
 
@@ -18,35 +18,31 @@ export const Editor: FunctionComponent<EditorProps> = props => {
         currentArticle,
         onSaveCurrentArticle,
         onGoBack,
+        onSetCurrentArticleContent,
+        onGetArticleById,
     } = props;
-    const { title: currentArticleTitle = '', text: currentArticleText = '' } = currentArticle || {};
+    const { id: articleId } = useParams();
+    console.log(articleId);
+    const { title = '', body = [] } = currentArticle || {};
+
+    useEffect(() => {
+        if (articleId) {
+            onGetArticleById(articleId);
+        }
+    }, []);
 
     const rootClassNames = cx('root');
     const articleWrapperClassNames = cx('article-wrapper');
     const articleClassName = cx('article');
 
-    const [title, setTitle] = useState(currentArticleTitle);
-    const [text, setText] = useState(currentArticleText);
-
-    useEffect(() => {
-        onSetCurrentArticle({
-            text,
-            title,
-        });
-    }, [onSetCurrentArticle, title, text]);
-
-    const titleTextareaProps: TextareaProps = {
+    const titleProps: TitleProps = {
         value: title,
-        placeholder: 'Title',
-        onInput: setTitle,
-        type: TextareaType.TITLE,
+        onSetCurrentArticle,
     };
 
-    const textTextareaProps: TextareaProps = {
-        value: text, // TODO: Это место надо оптимизировать!
-        placeholder: 'Text',
-        onInput: setText,
-        type: TextareaType.TEXT,
+    const articleContentProps: ArticleContentProps = {
+        body,
+        onSetCurrentArticleContent,
     };
 
     return (
@@ -57,8 +53,8 @@ export const Editor: FunctionComponent<EditorProps> = props => {
             </RightMenu>
             <div className={articleWrapperClassNames}>
                 <div className={articleClassName}>
-                    <Textarea {...titleTextareaProps} />
-                    <Textarea {...textTextareaProps} />
+                    <Title {...titleProps} />
+                    <ArticleContent {...articleContentProps} />
                 </div>
             </div>
         </div>

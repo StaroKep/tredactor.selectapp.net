@@ -1,10 +1,8 @@
 import TextareaAutosize from 'react-textarea-autosize';
-import React, { ChangeEvent, FunctionComponent, useCallback } from 'react';
+import React, { ChangeEvent, FunctionComponent, useCallback, useState } from 'react';
 import cn from 'classnames/bind';
 
 import { TextareaType } from 'enums';
-
-import { Hr } from '../Hr';
 
 import { TextareaProps } from './Textarea.types';
 import * as styles from './Textarea.scss';
@@ -12,7 +10,7 @@ import * as styles from './Textarea.scss';
 const cx = cn.bind(styles);
 
 export const Textarea: FunctionComponent<TextareaProps> = props => {
-    const { onInput, type = TextareaType.TEXT, placeholder, value } = props;
+    const { onInput, type = TextareaType.TEXT, placeholder, value, autoFocus = false } = props;
 
     const onChangeCallback = useCallback(
         (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -28,17 +26,15 @@ export const Textarea: FunctionComponent<TextareaProps> = props => {
 
     const rootProps = {
         value,
+        autoFocus,
         placeholder,
         onChange: onChangeCallback,
         className: textareaClassNames,
     };
 
-    const hr = type === TextareaType.TITLE ? <Hr /> : null;
-
     return (
         <div className={rootClassNames}>
             <TextareaAutosize {...rootProps} />
-            {hr}
         </div>
     );
 };

@@ -12,6 +12,7 @@ import {
     SignUpContainer,
     SignInContainer,
     ProfileContainer,
+    ArticlesContainer,
 } from 'pages';
 
 import * as styles from './Application.scss';
@@ -30,11 +31,14 @@ export const Application: FunctionComponent = () => {
                     <Route path={Path.SIGN_IN}>
                         <SignInContainer />
                     </Route>
-                    <Route path={Path.EDITOR}>
+                    <Route path={Path.EDITOR.concat('/:id?')}>
                         <EditorContainer />
                     </Route>
                     <Route path={Path.ARTICLE.concat('/:id')}>
                         <ArticleContainer />
+                    </Route>
+                    <Route path={Path.ARTICLES.concat('/:uid')}>
+                        <ArticlesContainer />
                     </Route>
                     <Route path={Path.PROFILE}>
                         <ProfileContainer />

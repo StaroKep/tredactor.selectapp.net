@@ -12,11 +12,12 @@ export function insertNewArticle(
     onErrorCallback: Function,
     noSuccessCallback: (id: number) => void,
 ) {
-    const { body } = data;
+    const { body, ...rest } = data;
     const stringifyedBody = JSON.stringify(body);
+    console.log(stringifyedBody);
 
     const modyfiedData = {
-        ...data,
+        ...rest,
         body: stringifyedBody,
     };
 

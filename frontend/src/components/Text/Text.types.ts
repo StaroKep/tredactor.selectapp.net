@@ -12,4 +12,5 @@ export interface TextProps {
     weight?: TextWeight;
     isUppercase?: boolean;
     className?: string;
+    placeholderStyle?: boolean;
 }

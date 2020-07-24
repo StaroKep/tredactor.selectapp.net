@@ -3,20 +3,22 @@ import React, { FunctionComponent, useEffect } from 'react';
 import cn from 'classnames/bind';
 
 import { Exit } from 'icons';
-import { Button } from 'components';
-
-import { RegularText, Title } from './parts';
+import { ArticleTitle, Button } from 'components';
 import { ArticleProps } from './Article.types';
 
 import * as styles from './Article.scss';
 import { ButtonTheme } from 'enums/buttonTheme';
+import { ArticleContentElement } from 'common/types/entities/article';
+import { ArticleContentType } from 'enums/articleContent';
+import { Text } from 'components/Article/Text';
+import { Image } from 'components/Article/Image';
 
 const cx = cn.bind(styles);
 
 export const Article: FunctionComponent<ArticleProps> = props => {
     const { currentArticle, onGetArticleById, onGoBack } = props;
     const { id } = useParams();
-    const { title, text } = currentArticle || {};
+    const { title, body = [] } = currentArticle || {};
 
     useEffect(() => {
         onGetArticleById(id);
@@ -33,6 +35,7 @@ export const Article: FunctionComponent<ArticleProps> = props => {
         className: closeButtonClassNames,
     };
 
+    console.log(body);
     return (
         <div className={rootClassNames}>
             <Button {...closeButtonProps}>
@@ -40,8 +43,18 @@ export const Article: FunctionComponent<ArticleProps> = props => {
             </Button>
             <div className={articleWrapperClassNames}>
                 <div className={articleClassNames}>
-                    <Title>{title}</Title>
-                    <RegularText>{text}</RegularText>
+                    <ArticleTitle>{title}</ArticleTitle>
+
+                    {body.map((element: ArticleContentElement) => {
+                        const { data, type } = element;
+
+                        switch (type) {
+                            case ArticleContentType.TEXT:
+                                return <Text>{data}</Text>;
+                            case ArticleContentType.IMAGE:
+                                return <Image src={data} />;
+                        }
+                    })}
                 </div>
             </div>
         </div>

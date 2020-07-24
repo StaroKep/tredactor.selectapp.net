@@ -17,6 +17,10 @@
 
         "baseUrl": "./",
         "paths": {
+            "common": ["../common"],
+            "common/*": ["../common/*"],
+            "backend": ["../backend/src"],
+            "backend/*": ["../backend/src/*"],
             "src": ["src/index"],
             "src/*": ["src/*"],
             "components": ["src/components"],

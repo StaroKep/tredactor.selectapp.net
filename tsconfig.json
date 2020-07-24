@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "lib": ["ESNext"],
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+
+        "allowJs": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "allowSyntheticDefaultImports": true,
+
+        "baseUrl": "./",
+        "paths": {
+            "common": ["common"],
+            "common/*": ["common/*"],
+            "frontend": ["frontend/src"],
+            "frontend/*": ["frontend/src/*"],
+            "backend": ["backend/src"],
+            "backend/*": ["frontend/src/*"]
+        }
+    },
+    "include": ["src/**/*", "types/**/*", "node_modules/@types"]
+}
